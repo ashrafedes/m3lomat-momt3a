@@ -3,66 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إضافة كتاب — Admin</title>
+  <title>إدارة الكتب — Admin</title>
   <meta name="robots" content="noindex">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <main style="padding:3rem 0">
-    <div class="container" style="max-width:640px">
-      <h1>إضافة كتاب جديد</h1>
-      <p class="page-sub">املأ الحقول → اضغط "أضف" → نزّل الملف وضعه مكان <code>assets/js/books_extra.js</code> → شغّل <code>python tools/build_books.py</code>. كل كتاب جديد يدخل sitemap تلقائيًا.</p>
+    <div class="container" style="max-width:720px">
+      <h1>إدارة الكتب</h1>
+      <p class="page-sub">عدّل أو أضف أو احذف كتبًا → اضغط <strong>حفظ على GitHub</strong> → ثم اطلب من ديفين "rebuild" ليولّد الصفحات ويحدّث sitemap تلقائيًا.</p>
+
       <div class="admin-form">
-        <label>اللغة / Language
-          <select id="fLang">
-            <option value="ar">عربي (books.html)</option>
-            <option value="en">English (books-en.html)</option>
-          </select></label>
-        <label>القسم / Section
-          <select id="fSec">
-            <option value="lit">روايات وأدب</option><option value="heritage">تراث وكلاسيكيات</option>
-            <option value="self">تنمية وفكر</option><option value="classic">Classics</option>
-            <option value="modern">Modern</option>
-          </select></label>
-        <label>اسم الكتاب / Title <input id="fTitle" required></label>
-        <label>المؤلف / Author <input id="fAuthor"></label>
-        <label>ملخص / Description <textarea id="fSum" rows="3"></textarea></label>
-        <label>رابط التحميل المباشر / Download URL <input id="fLink" dir="ltr" placeholder="https://…"></label>
-        <label>رابط الصورة / Image URL <input id="fImg" dir="ltr" placeholder="https://… (اتركه فارغًا للبحث التلقائي)"></label>
-        <button class="btn primary" id="addBtn">أضف +</button>
-        <button class="btn yt" id="dlBtn">⬇ تنزيل books_extra.js</button>
+        <div class="row2">
+          <label>اللغة
+            <select id="fLang"><option value="ar">عربي</option><option value="en">English</option></select></label>
+          <label>القسم
+            <select id="fSec">
+              <option value="lit">روايات وأدب</option><option value="heritage">تراث وكلاسيكيات</option>
+              <option value="self">تنمية وفكر</option><option value="classic">Classics</option>
+              <option value="modern">Modern</option>
+            </select></label>
+        </div>
+        <label>اسم الكتاب <input id="fTitle"></label>
+        <label>المؤلف <input id="fAuthor"></label>
+        <label>ملخص <textarea id="fSum" rows="3"></textarea></label>
+        <div class="row2">
+          <label>رابط التحميل المباشر <input id="fLink" dir="ltr" placeholder="https://…"></label>
+          <label>رابط الصورة <input id="fImg" dir="ltr" placeholder="اتركه فارغًا للبحث التلقائي"></label>
+        </div>
+        <div class="admin-actions">
+          <button class="btn primary" id="addBtn">＋ أضف / احفظ التعديل</button>
+          <button class="btn yt" id="saveBtn">💾 حفظ على GitHub</button>
+          <button class="btn" id="clearBtn">نموذج جديد</button>
+        </div>
+        <p id="status" style="color:var(--accent-2);font-weight:700"></p>
       </div>
-      <h2 style="margin-top:2rem">الكتب المضافة (<span id="cnt"></span>)</h2>
-      <ul id="list" style="color:var(--muted)"></ul>
+
+      <div class="search-box" style="margin-top:2rem">
+        <input type="search" id="q" placeholder="ابحث في الكتب…">
+      </div>
+      <div class="chips" style="margin:.8rem 0">
+        <button class="chip active" data-l="ar">عربي</button>
+        <button class="chip" data-l="en">English</button>
+      </div>
+      <ul id="list" class="book-list"></ul>
     </div>
   </main>
-  <script src="assets/js/books_extra.js"></script>
+
+  <script src="assets/js/books_data.js"></script>
   <script>
-    var list = EXTRA_BOOKS.slice();
-    function render() {
-      document.getElementById("cnt").textContent = list.length;
-      document.getElementById("list").innerHTML = list.map(function (b) {
-        return "<li>" + (b.lang === "ar" ? "[ع]" : "[EN]") + " " + b.dt + " — " + (b.au || "") + "</li>";
-      }).join("");
+  (function () {
+    var REPO = "ashrafedes/m3lomat-momt3a", FILE = "assets/js/books_data.js";
+    var viewLang = "ar", editIdx = -1;
+
+    function cur() { return viewLang === "ar" ? BOOKS_AR : BOOKS_EN; }
+    function status(msg, ok) {
+      var s = document.getElementById("status");
+      s.textContent = msg; s.style.color = ok ? "var(--accent-2)" : "#e11d48";
     }
+
+    function render() {
+      var q = document.getElementById("q").value.trim().toLowerCase();
+      var html = "";
+      cur().forEach(function (b, i) {
+        if (q && (b.dt + " " + (b.au || "")).toLowerCase().indexOf(q) < 0) return;
+        html += '<li class="book-row"><span><strong>' + (b.dt||"") + '</strong>' +
+                '<small>' + (b.au||"") + " — " + b.sec + '</small></span>' +
+                '<span class="row-btns"><button class="chip" data-e="' + i + '">تعديل</button>' +
+                '<button class="chip" data-d="' + i + '">حذف</button></span></li>';
+      });
+      document.getElementById("list").innerHTML = html;
+    }
+
+    document.getElementById("q").oninput = render;
+    document.querySelectorAll(".chip[data-l]").forEach(function (c) {
+      c.onclick = function () {
+        document.querySelectorAll(".chip[data-l]").forEach(function (x) { x.classList.remove("active"); });
+        c.classList.add("active"); viewLang = c.dataset.l; editIdx = -1; render();
+      };
+    });
+
+    document.getElementById("list").onclick = function (ev) {
+      var e = ev.target.dataset.e, d = ev.target.dataset.d;
+      if (e !== undefined) {
+        var b = cur()[e];
+        fLang.value = viewLang; fSec.value = b.sec; fTitle.value = b.dt || "";
+        fAuthor.value = b.au || ""; fSum.value = b.sm || "";
+        fLink.value = b.link || ""; fImg.value = b.img || "";
+        editIdx = +e; status("وضع التعديل: " + b.dt, true);
+      } else if (d !== undefined && confirm("حذف «" + cur()[d].dt + "»؟")) {
+        cur().splice(+d, 1); render(); status("حُذف — اضغط حفظ على GitHub", true);
+      }
+    };
+
     document.getElementById("addBtn").onclick = function () {
       var b = {
-        lang: fLang.value, sec: fSec.value, dt: fTitle.value.trim(),
+        sec: fSec.value, qt: fTitle.value.trim(), dt: fTitle.value.trim(),
         au: fAuthor.value.trim(), sm: fSum.value.trim(),
-        link: fLink.value.trim(), img: fImg.value.trim()
+        kind: "direct", link: fLink.value.trim(), img: fImg.value.trim()
       };
-      if (!b.dt || !b.link) { alert("العنوان ورابط التحميل مطلوبان"); return; }
-      list.push(b); render();
-      fTitle.value = fAuthor.value = fSum.value = fLink.value = fImg.value = "";
+      if (!b.dt || !b.link) { status("العنوان ورابط التحميل مطلوبان"); return; }
+      var list = (fLang.value === "ar") ? BOOKS_AR : BOOKS_EN;
+      if (editIdx >= 0 && list === cur()) list[editIdx] = b; else list.push(b);
+      editIdx = -1; render(); status("تم — اضغط حفظ على GitHub لنشره", true);
     };
-    document.getElementById("dlBtn").onclick = function () {
-      var blob = new Blob(["// Books added via books-admin.html\nconst EXTRA_BOOKS = " +
-        JSON.stringify(list, null, 2) + ";\n"], { type: "text/javascript" });
-      var a = document.createElement("a");
-      a.href = URL.createObjectURL(blob); a.download = "books_extra.js"; a.click();
+    document.getElementById("clearBtn").onclick = function () {
+      editIdx = -1;
+      ["fTitle","fAuthor","fSum","fLink","fImg"].forEach(function (id){document.getElementById(id).value="";});
+    };
+
+    document.getElementById("saveBtn").onclick = function () {
+      var token = localStorage.getItem("gh_pat");
+      if (!token) {
+        token = prompt("GitHub Personal Access Token (مرة واحدة فقط):");
+        if (!token) return;
+        localStorage.setItem("gh_pat", token);
+      }
+      var content = "const BOOKS_AR=" + JSON.stringify(BOOKS_AR) + ";\n" +
+                    "const BOOKS_EN=" + JSON.stringify(BOOKS_EN) + ";\n";
+      status("جارٍ الحفظ…", true);
+      fetch("https://api.github.com/repos/" + REPO + "/contents/" + FILE, {
+        headers: { Authorization: "Bearer " + token, Accept: "application/vnd.github+json" }
+      }).then(function (r) { return r.json(); }).then(function (meta) {
+        return fetch("https://api.github.com/repos/" + REPO + "/contents/" + FILE, {
+          method: "PUT",
+          headers: { Authorization: "Bearer " + token, "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: "Update books via admin", sha: meta.sha,
+            content: btoa(unescape(encodeURIComponent(content)))
+          })
+        });
+      }).then(function (r) {
+        if (r.ok) status("✅ تم الحفظ على GitHub — قل لديفين: rebuild", true);
+        else r.json().then(function (e) { status("خطأ: " + (e.message || r.status)); });
+      }).catch(function (e) { status("خطأ: " + e.message); });
     };
     render();
+  })();
   </script>
+  <style>
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .admin-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .book-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
+    .book-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: .6rem .9rem; }
+    .book-row small { display: block; color: var(--muted); }
+    .row-btns { display: flex; gap: .4rem; flex-shrink: 0; }
+  </style>
 </body>
 </html>
