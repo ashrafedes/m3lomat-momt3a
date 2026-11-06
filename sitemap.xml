@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://m3lomat-momt3a.org/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://i.ytimg.com/vi/luMka87efig/hqdefault.jpg</image:loc>
+      <image:title>معلومات ممتعة | Fun Facts</image:title>
+    </image:image>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/luMka87efig/mqdefault.jpg</video:thumbnail_loc>
       <video:title>جسمك بيرتعش ليه؟ ٦ أسباب علمية غير البرد والخوف</video:title>
@@ -39798,1199 +39803,1999 @@
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/19176514/pexels-photo-19176514.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>يوم الزهرة أطول من سنته</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-1.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الشمس تملك 99.86% من كتلة نظامنا الشمسي</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-2.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7538746/pexels-photo-7538746.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>القمر يهرب منا 3.8 سم كل سنة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-3.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/16002199/pexels-photo-16002199.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أوليمبوس مونس: بركان بـ3 أضعاف ارتفاع إفرست</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-4.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/38337913/pexels-photo-38337913.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الفضاء صامت تمامًا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-5.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/29998041/pexels-photo-29998041.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>نجم بحجم مدينة أثقل من الشمس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-6.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/33931043/pexels-photo-33931043.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>نجوم السما أكتر من رمل الشواطئ</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-7.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/33954064/pexels-photo-33954064.png?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ضوء الشمس بيوصلنا متأخر 8 دقايق</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-8.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/34012639/pexels-photo-34012639.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>عاصفة المشتري أكبر من الأرض</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-9.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/28711474/pexels-photo-28711474.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>زحل ممكن يطفو على الماية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-10.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/40074430/pexels-photo-40074430.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أقدام رواد الفضاء لسه على القمر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-11.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/19824837/pexels-photo-19824837.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>محطة الفضاء بتلف الأرض 16 مرة في اليوم</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-12.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/34362735/pexels-photo-34362735.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الوقت بيعدي أبطأ جنب الثقب الأسود</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-13.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8533136/pexels-photo-8533136.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الماية السخنة ممكن تسقع أسرع من الساقعة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-14.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8533087/pexels-photo-8533087.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البرق أسخن من سطح الشمس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-15.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/4031654/pexels-photo-4031654.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الهليوم مستحيل يتجمد بالتبريد بس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-16.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/18692575/pexels-photo-18692575.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الصوت في الماية أسرع 4 مرات من الهوا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-17.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8851786/pexels-photo-8851786.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الذهب معدن ممكن تاكله</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-18.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9243563/pexels-photo-9243563.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>كوب ماية فيه جزيئات أكتر من أكواب محيطات الدنيا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-19.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/32769363/pexels-photo-32769363.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الألماس والجرافيت نفس المادة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-20.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8533139/pexels-photo-8533139.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>العسل مابيفسدش أبدًا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-21.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8540819/pexels-photo-8540819.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الموز مشع بشكل طبيعي</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-22.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8442110/pexels-photo-8442110.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الزجاج مش سايل بيتحرك ببطء</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-23.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9574397/pexels-photo-9574397.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الأكسجين السايل لونه أزرق</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-24.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8533041/pexels-photo-8533041.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أسيد معدتك يقدر يدوّب معادن</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-25.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/11703173/pexels-photo-11703173.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أسماك القرش أقدم من الأشجار</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-26.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/19895787/pexels-photo-19895787.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>DNA بتاعك ممكن يلف المجموعة الشمسية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-27.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7710399/pexels-photo-7710399.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الأخطبوط عنده 3 قلوب ودمه أزرق</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-28.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/10812818/pexels-photo-10812818.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>النحل بيعرف يفرّق بين وشوش البشر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-29.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/40261667/pexels-photo-40261667.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الفراشة بتدوّق برجلها</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-30.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/13938405/pexels-photo-13938405.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الدولفين بينام بنص مخ</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-31.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/14576563/pexels-photo-14576563.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البومة مابتحركش عينيها — بتحرك رقبتها</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-32.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/16484394/pexels-photo-16484394.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الفيل بيعرف نفسه في المراية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-33.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/39440687/pexels-photo-39440687.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الغراب بيصنع أدوات وبيحل ألغاز</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-34.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/14955210/pexels-photo-14955210.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البطريق بيقدم هدية خطوبة: حصاة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-35.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/16382060/pexels-photo-16382060.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الأكسولوتل بينمّي أعضاءه من تاني</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-36.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/40213080/pexels-photo-40213080.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>جمبري المانتيس بيضرب أسرع من رصاصة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-37.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7280784/pexels-photo-7280784.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>دب الماية عاش في الفضاء الخارجي</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-38.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/11928981/pexels-photo-11928981.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>خرخرة القطة ممكن تعالج عظامها</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-39.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9579161/pexels-photo-9579161.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>بصمة الكوالا مش بتتفرق عن بصمتك</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-40.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/5427819/pexels-photo-5427819.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أنفك بيفتكر 50 ألف ريحة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-41.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/6129867/pexels-photo-6129867.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>جسمك فيه بكتيريا بعدد خلاياك</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-42.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/5428144/pexels-photo-5428144.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مخك بيكفي يولّع لمبة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-43.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/5427832/pexels-photo-5427832.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>عظامك أصلب من الحديد (لوزن لوزن)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-44.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8472000/pexels-photo-8472000.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>جلدك أكبر عضو — وبيتجدد كله</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-45.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8471868/pexels-photo-8471868.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>معدتك بتغير بطانتها كل أيام</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-46.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8471861/pexels-photo-8471861.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>إنت وموزتك قرايب 60%</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-47.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8471784/pexels-photo-8471784.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>قلبك بيدق 100 ألف مرة يوميًا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-48.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8471908/pexels-photo-8471908.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ودانك وأنفك مش بيوقفوا نمو</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-49.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/15851263/pexels-photo-15851263.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>كبدك الوحيد اللي بيجدد نفسه بالكامل</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-50.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8471852/pexels-photo-8471852.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>العطسة بسرعة 160 كم/س</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-51.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/27376660/pexels-photo-27376660.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>شعرك بيطول 15 سم في السنة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-52.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3825539/pexels-photo-3825539.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>لسانك بصمته مميزة زي بصمة صوابعك</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-53.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/10483573/pexels-photo-10483573.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>بننسى 90% من أحلامنا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-54.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8471867/pexels-photo-8471867.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>رمشة العين بتاخد عُشر ثانية بس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-55.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/28243405/pexels-photo-28243405.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>كليوباترا أقرب زمنيًا للآيفون من بناء الهرم</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-56.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/13507834/pexels-photo-13507834.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>جامعة أكسفورد أقدم من الإمبراطورية الأزتيكية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-57.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/6422200/pexels-photo-6422200.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أقصر حرب في التاريخ: 38 دقيقة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-58.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/6460892/pexels-photo-6460892.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>سور الصين اتبنى بأرز</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-59.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/28243407/pexels-photo-28243407.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مكتبة إسكندرية كانت تجمع الكتب بالمصادرة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-60.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/38268006/pexels-photo-38268006.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الفايكنج وصلوا أمريكا قبل كولومبوس بـ500 سنة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-61.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/38282710/pexels-photo-38282710.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>نابليون هزمته الأرانب</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-62.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/13679799/pexels-photo-13679799.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>عمال الأهرامات كانوا بيتقاضوا مرتبات</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-63.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/6422201/pexels-photo-6422201.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول &apos;بق&apos; كمبيوتر كان بقة حقيقية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-64.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/33259450/pexels-photo-33259450.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>روما القديمة كانت فيها &apos;مولات&apos; تسوق</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-65.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/32408722/pexels-photo-32408722.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البرقية اللي كسرت التلفون</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-66.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/29871288/pexels-photo-29871288.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>موبايلك أقوى من كمبيوتر أبولو بمليون مرة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-67.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/22763683/pexels-photo-22763683.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الإيميل أقدم من الإنترنت اللي بنعرفه</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-68.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/17489151/pexels-photo-17489151.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ليه حروف الكيبورد QWERTY مش مرتبة أبجدي؟</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-69.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/39178037/pexels-photo-39178037.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول ويب كام اتعملت عشان قهوة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-70.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/5092815/pexels-photo-5092815.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>اسم جوجل كان خطأ إملائي</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-71.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/17489150/pexels-photo-17489150.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول رسالة SMS كانت &apos;عيد ميلاد سعيد&apos;</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-72.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/6913311/pexels-photo-6913311.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ممثلة هوليوود اخترعت أساس الواي فاي</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-73.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/209666/pexels-photo-209666.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول موقع في التاريخ لسه شغال</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-74.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/12741843/pexels-photo-12741843.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الكابتشا بتعلّم الروبوتات مجانًا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-75.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/37148217/pexels-photo-37148217.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>صورك بتشغل مساحة أكبر من مكتبة كونجرس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-76.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/37621279/pexels-photo-37621279.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>النرويج بتديها تيار إلكترونيات</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-77.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/40526384/pexels-photo-40526384.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الشجر بيتكلم مع بعضه تحت الأرض</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-78.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/1693453/pexels-photo-1693453.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البرق بيضرب الأرض 8 مليون مرة يوميًا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-79.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/6640401/pexels-photo-6640401.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الصحراء الكبرى بتشوف تلج</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-80.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/15869007/pexels-photo-15869007.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الموز بيري والفراولة مش بيري</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-81.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/733871/pexels-photo-733871.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أكبر كائن حي هو فطر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-82.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/14830364/pexels-photo-14830364.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الأمازون مش رئة الدنيا بالمعنى المشهور</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-83.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/749129/pexels-photo-749129.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>قوس قزح دايرة كاملة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-84.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/16840769/pexels-photo-16840769.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البامبو بيطول 91 سم في اليوم</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-85.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/830500/pexels-photo-830500.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الدودة الأرضية عندها 5 قلوب</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-86.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9144156/pexels-photo-9144156.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>في نجمة بتغني في الفضاء</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-87.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/28770308/pexels-photo-28770308.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>العفن اللي غير الطب</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-88.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8828413/pexels-photo-8828413.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>روسيا وأمريكا بينهم 4 كيلو بس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-89.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30769309/pexels-photo-30769309.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أفريقيا تسع كل القارات</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-90.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/35425418/pexels-photo-35425418.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>كندا عندها بحيرات أكتر من باقي الدنيا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-91.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30792658/pexels-photo-30792658.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أكبر صحرا في الدنيا متجمدة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-92.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/4611591/pexels-photo-4611591.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>إسطنبول على قارتين</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-93.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/19970150/pexels-photo-19970150.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البحر الميت مش بيخليك تغرق</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-94.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/15005882/pexels-photo-15005882.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>آيسلندا مفيهاش ناموس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-95.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30550487/pexels-photo-30550487.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>موناكو أصغر من سنترال بارك</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-96.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9494917/pexels-photo-9494917.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>خندق ماريانا يبتلع إفرست</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-97.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30769311/pexels-photo-30769311.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>روسيا فيها 11 توقيت</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-98.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7412069/pexels-photo-7412069.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>اليابان فيها 14 ألف جزيرة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-99.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30596226/pexels-photo-30596226.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>نيوزيلندا فيها قرية بأطول اسم في الدنيا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-100.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9480696/pexels-photo-9480696.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>محيط مخفي تحت جليد أوروبا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-101.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7108185/pexels-photo-7108185.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>على تيتان بيمطر ميثان</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-102.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/33173621/pexels-photo-33173621.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>القمر كان أقرب بكتير في الماضي</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-103.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/33161088/pexels-photo-33161088.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الشمس في منتصف عمرها بالظبط</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-104.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/12491650/pexels-photo-12491650.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>رسالة الإنسانية اللي بتسافر للأبد</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-105.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/20376388/pexels-photo-20376388.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أورانوس بيدور وهو نايم على جنبه</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-106.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30596307/pexels-photo-30596307.png?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>تلج على أقرب كوكب للشمس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-107.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/20376399/pexels-photo-20376399.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>القلب الأبيض على بلوتو</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-108.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/12498801/pexels-photo-12498801.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مجرتنا هتتصادم مع أندروميدا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-109.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/20337595/pexels-photo-20337595.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>نقاط وقوف العربيات في الفضاء</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-110.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/20337604/pexels-photo-20337604.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مصادفة الكسوف الكامل الكونية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-111.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/20376411/pexels-photo-20376411.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>شفق المشتري أقوى من شفقنا بمئات المرات</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-112.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/20376409/pexels-photo-20376409.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>كواكب بتمشي في الفضاء من غير شمس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-113.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8533076/pexels-photo-8533076.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>التلج ممكن يكون أسخن من النار</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-114.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9243540/pexels-photo-9243540.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الصفر المطلق مستحيل الوصول</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-115.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9243546/pexels-photo-9243546.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>عقلك بيعالجك: تأثير البلاسيبو</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-116.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8926673/pexels-photo-8926673.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الديجافو: خطأ في نظام الذاكرة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-117.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8326703/pexels-photo-8326703.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الجسيمات بتمشي من خلال الحيطان</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-118.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8443070/pexels-photo-8443070.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>السوائل الفائقة بتتحدى الجاذبية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-119.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8471995/pexels-photo-8471995.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الليمون بطارية طبيعية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-120.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8544957/pexels-photo-8544957.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الجرافين: أقوى مادة في العالم بسماكة ذرة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-121.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8326473/pexels-photo-8326473.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>جسمك بيضوّي في الضلمة فعلًا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-122.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9243532/pexels-photo-9243532.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الصوديوم بينفجر في الماية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-123.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9243571/pexels-photo-9243571.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الكريسبر: مقص التعديل الوراثي</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-124.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/8533012/pexels-photo-8533012.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ليه السماء زرقا فعلًا؟</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-125.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9243432/pexels-photo-9243432.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الحفر باتجاه مركز الأرض</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-126.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/13681225/pexels-photo-13681225.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الغراب بيفتكر اللي أزعجه سنين</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-127.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/16838924/pexels-photo-16838924.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الأخطبوط بيحلم وهو نايم</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-128.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/16673916/pexels-photo-16673916.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الفيلة بتعزي موتاها</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-129.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/19284581/pexels-photo-19284581.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الكلب بيحس بالوقت</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-130.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/14298652/pexels-photo-14298652.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الببغا بيفهم الصفر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-131.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/37852838/pexels-photo-37852838.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ثعلب الماية بيمسك إيد صاحبه وهو نايم</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-132.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/6404116/pexels-photo-6404116.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الماعز عندها لكنات زي البشر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-133.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7031226/pexels-photo-7031226.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>النمل كان فلاح قبلنا بـ50 مليون سنة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-134.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/32707948/pexels-photo-32707948.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>العناكب بتهاجر بالطيران</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-135.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7755320/pexels-photo-7755320.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الطائر الطنان بيدق قلبه 1200 مرة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-136.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/31793882/pexels-photo-31793882.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الجمل بيشرب 100 لتر في دقايق</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-137.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30370617/pexels-photo-30370617.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ضغط الزرافة أعلى ضغط في المملكة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-138.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/37399542/pexels-photo-37399542.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>القطط بتحلم زي البشر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-139.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/4021800/pexels-photo-4021800.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>النوم بيغسل مخك حرفيًا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-140.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/37330388/pexels-photo-37330388.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>بطنك فيها مخ تاني</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-141.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/5795/medicine-thermometer-tablets-pills.jpg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>العضلة بتفتكر التمرين سنين</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-142.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/5994625/pexels-photo-5994625.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>بصمتك اتكونت وأنت في بطن أمك</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-143.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/208512/pexels-photo-208512.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الضحك معدي علميًا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-144.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9562136/pexels-photo-9562136.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>قشعريرة الجسم: إرث من أجدادنا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-145.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7723510/pexels-photo-7723510.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الزايدة مش زيادة عن اللزوم</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-146.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/33394283/pexels-photo-33394283.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ضرس العقل: بقايا من أكل أجدادنا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-147.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/51929/medications-cure-tablets-pharmacy-51929.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>المكفوفين بيحلموا بالصوت واللمس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-148.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/12512672/pexels-photo-12512672.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الزغطة: لغز مابتحلش لسه</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-149.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30644268/pexels-photo-30644268.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مخك 60% دهون</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-150.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/5842131/pexels-photo-5842131.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أسنانك أصلب من عظامك</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-151.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/806427/pexels-photo-806427.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>جسمك بيصنع أسيد بطارية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-152.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/37915079/pexels-photo-37915079.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>آلة إغريقية عمرها 2000 سنة كانت أول كمبيوتر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-153.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/34672551/pexels-photo-34672551.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>بطارية بغداد: كهربة قبل عصرها؟</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-154.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/18717601/pexels-photo-18717601.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>جوبيكلي تبه: أقدم معبد قبل الزراعة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-155.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/30634818/pexels-photo-30634818.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مترو لندن أقدم مترو في العالم</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-156.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3037096/pexels-photo-3037096.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مسلسل الهوس بالتوليب كسر هولندا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-157.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/36755131/pexels-photo-36755131.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>وباء الرقص اللي مشي في شوارع أوروبا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-158.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/32903530/pexels-photo-32903530.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>السنة اللي ماجاش فيها صيف</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-159.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/35551877/pexels-photo-35551877.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>حجر رشيد: مفتاح فك الحضارة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-160.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/18915139/pexels-photo-18915139.png?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أستراليا خسرت حرب ضد طيور</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-161.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/5731607/pexels-photo-5731607.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مكتبة آشوربانيبال: أول مكتبة منظمة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-162.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/32872727/pexels-photo-32872727.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>المعابد المصرية كانت بتلمع بألوانها</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-163.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/18335892/pexels-photo-18335892.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>سباق الفضاء بدأ بأقمار صناعية صغيرة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-164.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/37148208/pexels-photo-37148208.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول مبرمج في التاريخ كانت ست</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-165.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/17489155/pexels-photo-17489155.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول كمبيوتر كان أوزانه 27 طن</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-166.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/37730211/pexels-photo-37730211.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول إيموجي اتصنع في اليابان</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-167.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/35378672/pexels-photo-35378672.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الإنترنت بيعدي تحت البحر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-168.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/4389795/pexels-photo-4389795.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>جي بي إس بيشتغل بفضل أينشتاين</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-169.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7562002/pexels-photo-7562002.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>بلوتوث سمي على اسم ملك</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-170.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/12960426/pexels-photo-12960426.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول صورة فوتوغرافية استغرقت 8 ساعات</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-171.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/12960383/pexels-photo-12960383.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>هارد 5 ميجا كان محتاج طيارة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-172.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7562030/pexels-photo-7562030.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>واتساب بدأ كرفضة وظيفة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-173.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7773728/pexels-photo-7773728.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الكمبيوتر الكمي بيحسب بعوالم متوازية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-174.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7562429/pexels-photo-7562429.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>نغمة نوكيا الأشهر مقطوعة كلاسيكية</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-175.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7562259/pexels-photo-7562259.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أول جرافيك كمبيوتر كان نورس</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-176.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/1316541/pexels-photo-1316541.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ريحة المطر ليها اسم: بيتريكور</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-177.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/35512400/pexels-photo-35512400.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البرق مابيضربش مرتين؟ خرافة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-178.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/14522408/pexels-photo-14522408.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>شجرة عمرها 5000 سنة لسه عايشة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-179.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/20988252/pexels-photo-20988252.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أعماق المحيط بتضوّي بكائناتها</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-180.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/12944764/pexels-photo-12944764.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البركان بيطلع برق بنفسه</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-181.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7689028/pexels-photo-7689028.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الشجر بيصنع شعر تلج</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-182.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/39411621/pexels-photo-39411621.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>صخور بتتحرك لوحدها في وادي الموت</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-183.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/33164661/pexels-photo-33164661.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>شلال الدم في أنتارتيكا</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-184.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/34985169/pexels-photo-34985169.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>فقاعات ميثان متجمدة تحت البحيرات</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-185.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/32775310/pexels-photo-32775310.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>سحابة العدسات اللي بتتحسب طبق طائر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-186.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/13389709/pexels-photo-13389709.png?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الشفق القطبي ليه ألوان مختلفة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-187.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/38450033/pexels-photo-38450033.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الصحرا بتاكل مدن كاملة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-188.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9494914/pexels-photo-9494914.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>نقطة نيمو: أبعد مكان عن أي إنسان</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-189.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/9334546/pexels-photo-9334546.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>نقطة تانية من الكوكب: مضادات الأرض</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-190.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/7412013/pexels-photo-7412013.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>فرنسا صاحبة أكتر عدد توقيتات</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-191.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/17200877/pexels-photo-17200877.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>قمة شيمبورازو أبعد نقطة عن مركز الأرض</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-192.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/16577812/pexels-photo-16577812.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>ناورو: دولة بلا عاصمة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-193.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/38726365/pexels-photo-38726365.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>قطار عبر سيبيريا: أطول رحلة سكة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-194.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/32275767/pexels-photo-32275767.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>أويمياكون: أبرد مكان بيسكنه بشر</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-195.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/17273353/pexels-photo-17273353.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>البندقية بتغرق ببطء</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-196.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/23848552/pexels-photo-23848552.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>دناكل: أسخن مكان على وجه الأرض</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-197.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/4326309/pexels-photo-4326309.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>مثلث برمودا: أغلبها أسطورة</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-198.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/6052420/pexels-photo-6052420.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>الدنيا فيها 195 دولة على الورق</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://m3lomat-momt3a.org/article-199.html</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/26969528/pexels-photo-26969528.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940</image:loc>
+      <image:title>النرويج فيها أكتر مكان بيعيش فيه الظلام</image:title>
+    </image:image>
   </url>
 </urlset>

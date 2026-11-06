@@ -86,12 +86,17 @@ def main():
                      .replace('"', "&quot;").replace("'", "&apos;"))
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+          '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"',
           '        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">',
           "  <url>",
           f"    <loc>{DOMAIN}/</loc>",
           f"    <lastmod>{datetime.now(timezone.utc).strftime('%Y-%m-%d')}</lastmod>",
           "    <changefreq>weekly</changefreq>",
-          "    <priority>1.0</priority>"]
+          "    <priority>1.0</priority>",
+          "    <image:image>",
+          "      <image:loc>https://i.ytimg.com/vi/luMka87efig/hqdefault.jpg</image:loc>",
+          "      <image:title>معلومات ممتعة | Fun Facts</image:title>",
+          "    </image:image>"]
     for vid, cat, title, date, dur in videos:
         cat_ar, cat_en = CAT_INFO[cat]
         sm += ["    <video:video>",
@@ -129,16 +134,21 @@ def main():
            "    <changefreq>monthly</changefreq>",
            "    <priority>0.8</priority>",
            "  </url>"]
-    # individual article pages
+    # individual article pages (with hero image per page)
     art_src = os.path.join(ROOT, "assets/js/articles.js")
     if os.path.exists(art_src):
-        n = len(re.findall(r'"i":\s*\d+', open(art_src, encoding="utf-8").read()))
-        for i in range(n):
+        raw = open(art_src, encoding="utf-8").read()
+        arts = json.loads(re.search(r"const ARTICLES=(\[.*\]);?\s*$", raw, re.S).group(1))
+        for a in arts:
             sm += ["  <url>",
-                   f"    <loc>{DOMAIN}/article-{i}.html</loc>",
+                   f"    <loc>{DOMAIN}/article-{a['i']}.html</loc>",
                    f"    <lastmod>{today}</lastmod>",
                    "    <changefreq>monthly</changefreq>",
                    "    <priority>0.6</priority>",
+                   "    <image:image>",
+                   f"      <image:loc>{esc(a['img'])}</image:loc>",
+                   f"      <image:title>{esc(a['ta'])}</image:title>",
+                   "    </image:image>",
                    "  </url>"]
     sm += ["</urlset>", ""]
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(sm))
