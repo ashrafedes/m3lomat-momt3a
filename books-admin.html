@@ -41,8 +41,8 @@
         <label>المؤلف <input id="fAuthor"></label>
         <label>ملخص <textarea id="fSum" rows="3"></textarea></label>
         <div class="row2">
-          <label>رابط التحميل المباشر <input id="fLink" dir="ltr" placeholder="https://…"></label>
-          <label>رابط الصورة <input id="fImg" dir="ltr" placeholder="اتركه فارغًا للبحث التلقائي"></label>
+          <label>رابط التحميل المباشر <input id="fLink" dir="ltr" placeholder="https://… — فارغ = الإبقاء على الحالي"></label>
+          <label>رابط الصورة <input id="fImg" dir="ltr" placeholder="فارغ = الإبقاء على الحالي / بحث تلقائي"></label>
         </div>
         <div class="admin-actions">
           <button class="btn primary" id="addBtn">＋ أضف / احفظ التعديل</button>
@@ -102,14 +102,20 @@
     };
 
     document.getElementById("addBtn").onclick = function () {
-      var b = {
-        sec: fSec.value, qt: fTitle.value.trim(), dt: fTitle.value.trim(),
-        au: fAuthor.value.trim(), sm: fSum.value.trim(),
-        kind: "direct", link: fLink.value.trim(), img: fImg.value.trim()
-      };
-      if (!b.dt || !b.link) { status("العنوان ورابط التحميل مطلوبان"); return; }
       var list = (fLang.value === "ar") ? BOOKS_AR : BOOKS_EN;
-      if (editIdx >= 0 && list === cur()) list[editIdx] = b; else list.push(b);
+      var isEdit = editIdx >= 0 && list === cur();
+      var b = isEdit ? list[editIdx] : { kind: "direct" };
+      b.sec = fSec.value;
+      b.dt = fTitle.value.trim();
+      if (!b.qt) b.qt = b.dt;
+      b.au = fAuthor.value.trim();
+      b.sm = fSum.value.trim();
+      var nl = fLink.value.trim(), ni = fImg.value.trim();
+      if (nl) { b.link = nl; b.kind = "direct"; }
+      if (ni) b.img = ni;
+      if (!b.dt) { status("اسم الكتاب مطلوب"); return; }
+      if (!isEdit && !b.link) { status("رابط التحميل مطلوب للكتب الجديدة"); return; }
+      if (!isEdit) list.push(b);
       editIdx = -1; render(); status("تم — اضغط حفظ على GitHub لنشره", true);
     };
     document.getElementById("clearBtn").onclick = function () {
