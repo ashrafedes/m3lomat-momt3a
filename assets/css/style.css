@@ -255,8 +255,9 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.1rem;
 }
-.book-thumb { aspect-ratio: 3/4 !important; max-height: 220px; }
-.book-thumb img { object-fit: cover; object-position: top; }
+.book-thumb { display: block; height: 200px; }
+.book-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.book-thumb .thumb { height: 100%; aspect-ratio: auto; }
 .book-info { padding: .9rem 1rem 1.1rem; display: flex; flex-direction: column; gap: .35rem; }
 .book-author { color: var(--muted); font-size: .82rem; font-weight: 600; }
 .book-summary { color: var(--text); font-size: .88rem; line-height: 1.7; }

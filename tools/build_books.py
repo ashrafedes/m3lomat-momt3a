@@ -231,6 +231,18 @@ def load_extra():
     return json.loads(m.group(1)) if m else []
 
 
+def load_books_js():
+    """Canonical book lists edited via books-admin.html -> assets/js/books_data.js"""
+    p = os.path.join(ROOT, "assets/js/books_data.js")
+    if not os.path.exists(p):
+        return None, None
+    src = open(p, encoding="utf-8").read()
+    ar = re.search(r"BOOKS_AR=(\[.*?\]);", src, re.S)
+    en = re.search(r"BOOKS_EN=(\[.*?\]);", src, re.S)
+    return (json.loads(ar.group(1)) if ar else [],
+            json.loads(en.group(1)) if en else [])
+
+
 def book_page_filename(lang, idx):
     return f"book-{lang}-{idx}.html"
 
@@ -295,13 +307,13 @@ def build(books, sections, lang, page, title, desc, sub, home, v, a, b, f, dl, f
     cache = {}
     if os.path.exists(CACHE):
         cache = json.load(open(CACHE, encoding="utf-8"))
-    all_books = [{"sec": s, "qt": q, "dt": d, "au": u, "sm": m, "kind": k}
-                 for s, q, d, u, m, k in books]
-    for x in load_extra():
-        if x.get("lang") == lang:
-            all_books.append({"sec": x["sec"], "qt": "", "dt": x["dt"], "au": x.get("au", ""),
-                              "sm": x.get("sm", ""), "kind": "direct",
-                              "link": x.get("link", ""), "img": x.get("img", "")})
+    all_books = []
+    for b in books:
+        if isinstance(b, dict):
+            all_books.append(dict(b))
+        else:
+            s, q, d, u, m, k = b
+            all_books.append({"sec": s, "qt": q, "dt": d, "au": u, "sm": m, "kind": k})
     groups = {}
     for bk in all_books:
         groups.setdefault(bk["sec"], []).append(bk)
@@ -338,11 +350,16 @@ def build(books, sections, lang, page, title, desc, sub, home, v, a, b, f, dl, f
     return len(all_books)
 
 if __name__ == "__main__":
-    n_ar = build(AR_BOOKS, AR_SECTIONS, "ar", "books.html",
+    js_ar, js_en = load_books_js()
+    if js_ar is not None:
+        AR, EN = js_ar, js_en
+    else:
+        AR, EN = AR_BOOKS, EN_BOOKS
+    n_ar = build(AR, AR_SECTIONS, "ar", "books.html",
           "أفضل 100 كتاب — مكتبة معلومات ممتعة",
           "أفضل الكتب العربية والمترجمة — روايات وتراث وتنمية، مع ملخص قصير ورابط تحميل أو معاينة قانونية لكل كتاب.",
           "اشترك", "هل تعلم؟", "فيديوهات", "مقالات", "كتب", "المعلومات", "معاينة / تحميل", "تحميل مجاني", "rtl")
-    n_en = build(EN_BOOKS, EN_SECTIONS, "en", "books-en.html",
+    n_en = build(EN, EN_SECTIONS, "en", "books-en.html",
           "Top 100 Books | M3lomat Momt3a",
           "The top 100 must-read books — classics with free legal downloads (Project Gutenberg) and modern bestsellers with preview & borrow links.",
           "Subscribe", "Did You Know?", "Videos", "Articles", "Books", "Facts", "Preview / Download", "Free download", "ltr")
