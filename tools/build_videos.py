@@ -55,6 +55,8 @@ def main():
     videos = []
     for e in entries:
         title = (e.get("title") or "").strip() or "فيديو"
+        if "challenges.cloudflare.com" in title:
+            continue
         cat = categorize(title)
         ts = e.get("timestamp")
         date = datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d") if ts else ""
@@ -87,19 +89,26 @@ def main():
           '        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">',
           "  <url>",
           f"    <loc>{DOMAIN}/</loc>",
+          f"    <lastmod>{datetime.now(timezone.utc).strftime('%Y-%m-%d')}</lastmod>",
           "    <changefreq>weekly</changefreq>",
           "    <priority>1.0</priority>"]
     for vid, cat, title, date, dur in videos:
+        cat_ar, cat_en = CAT_INFO[cat]
         sm += ["    <video:video>",
                f"      <video:thumbnail_loc>https://i.ytimg.com/vi/{vid}/mqdefault.jpg</video:thumbnail_loc>",
                f"      <video:title>{esc(title)}</video:title>",
                f"      <video:description>{esc(title)}</video:description>",
-               f"      <video:player_loc>https://www.youtube.com/embed/{vid}</video:player_loc>"]
+               f"      <video:player_loc>https://www.youtube.com/embed/{vid}</video:player_loc>",
+               '      <video:uploader info="https://www.youtube.com/@m3lomat-momt3a">معلومات ممتعة | Fun Facts</video:uploader>']
         if date:
             sm.append(f"      <video:publication_date>{date}</video:publication_date>")
         if dur:
             sm.append(f"      <video:duration>{dur}</video:duration>")
-        sm.append("    </video:video>")
+        sm += [f"      <video:category>{esc(cat_en)}</video:category>",
+               f"      <video:tag>{esc(cat_en)}</video:tag>",
+               f"      <video:tag>{esc(cat_ar)}</video:tag>",
+               "      <video:tag>معلومات ممتعة</video:tag>",
+               "    </video:video>"]
     sm += ["  </url>", "</urlset>", ""]
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(sm))
 
