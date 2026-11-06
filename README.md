@@ -12,6 +12,7 @@
 | `assets/js/app.js` | منطق الموقع (بحث، فلترة، نسخ، معلومة عشوائية، فيديوهات) |
 | `assets/js/videos.js` | بيانات الفيديوهات — يتولّد تلقائيًا، لا تعدّله يدويًا |
 | `tools/build_videos.py` | سكربت يجلب كل فيديوهات القناة (yt-dlp) ويولّد `videos.js` + `sitemap.xml` |
+| `tools/build_pages.py` | يولّد الصفحات الثابتة `facts.html` و`videos.html` و`articles.html` وصفحات المقالات `article-N.html` |
 | `robots.txt` / `sitemap.xml` | ملفات الـ SEO لـ Google Search Console |
 | `render.yaml` | إعدادات النشر على Render |
 
@@ -20,6 +21,7 @@
 ```bash
 rm channel.json            # امسح الكاش القديم (أول مرة غير مطلوب)
 python tools/build_videos.py
+python tools/build_pages.py   # لتحديث الصفحات الثابتة أيضًا
 git add -A && git commit -m "Update videos" && git push
 ```
 

@@ -4,3 +4,4 @@ node_modules/
 *.log
 channel.json
 __pycache__/
+.playwright-mcp/

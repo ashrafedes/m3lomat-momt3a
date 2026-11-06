@@ -1,6 +1,6 @@
 # Regenerate assets/js/videos.js and the video entries in sitemap.xml
 # Usage: python tools/build_videos.py   (needs channel.json from yt-dlp, or it fetches it)
-import json, subprocess, os
+import json, re, subprocess, os
 from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -109,7 +109,34 @@ def main():
                f"      <video:tag>{esc(cat_ar)}</video:tag>",
                "      <video:tag>معلومات ممتعة</video:tag>",
                "    </video:video>"]
-    sm += ["  </url>", "</urlset>", ""]
+    sm += ["  </url>",
+           "  <url>",
+           f"    <loc>{DOMAIN}/videos.html</loc>",
+           f"    <lastmod>{datetime.now(timezone.utc).strftime('%Y-%m-%d')}</lastmod>",
+           "    <changefreq>weekly</changefreq>",
+           "    <priority>0.9</priority>",
+           "  </url>",
+           "  <url>",
+           f"    <loc>{DOMAIN}/articles.html</loc>",
+           "    <changefreq>monthly</changefreq>",
+           "    <priority>0.8</priority>",
+           "  </url>",
+           "  <url>",
+           f"    <loc>{DOMAIN}/facts.html</loc>",
+           "    <changefreq>monthly</changefreq>",
+           "    <priority>0.8</priority>",
+           "  </url>"]
+    # individual article pages
+    art_src = os.path.join(ROOT, "assets/js/articles.js")
+    if os.path.exists(art_src):
+        n = len(re.findall(r'"i":\s*\d+', open(art_src, encoding="utf-8").read()))
+        for i in range(n):
+            sm += ["  <url>",
+                   f"    <loc>{DOMAIN}/article-{i}.html</loc>",
+                   "    <changefreq>monthly</changefreq>",
+                   "    <priority>0.6</priority>",
+                   "  </url>"]
+    sm += ["</urlset>", ""]
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(sm))
 
 if __name__ == "__main__":
