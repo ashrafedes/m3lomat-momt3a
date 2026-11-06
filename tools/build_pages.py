@@ -42,6 +42,7 @@ HEAD = """<!DOCTYPE html>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12z"/></svg>
         اشترك
       </a>
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
     </div>
   </header>
   <main>
@@ -54,6 +55,22 @@ FOOT = """  </main>
       <p class="muted">تابعنا على يوتيوب لكل جديد</p>
     </div>
   </footer>
+  <script>
+    function applyLang(l) {
+      var h = document.documentElement;
+      h.dataset.lang = l; h.lang = l; h.dir = (l === "en") ? "ltr" : "rtl";
+      var b = document.getElementById("langBtn");
+      if (b) b.textContent = (l === "en") ? "عربي" : "EN";
+    }
+    function toggleLang() {
+      var l = (document.documentElement.dataset.lang === "en") ? "ar" : "en";
+      try { localStorage.setItem("lang", l); } catch (e) {}
+      applyLang(l);
+    }
+    var _l = "ar";
+    try { _l = localStorage.getItem("lang") || "ar"; } catch (e) {}
+    applyLang(_l);
+  </script>
 </body>
 </html>
 """
@@ -100,13 +117,13 @@ def build_facts_page():
         if not items:
             continue
         ar, en, color = cats[key]
-        out.append(f'        <h2 id="{key}" style="color:{color}">{ar} <span class="muted" lang="en">/ {en}</span></h2>\n')
+        out.append(f'        <h2 id="{key}" style="color:{color}"><span class="ar-only">{ar}</span> <span class="en-only">{en}</span></h2>\n')
         out.append('        <div class="grid">\n')
         for t, e in items:
             out.append(
                 f'          <article class="fact-card">\n'
-                f'            <p class="fact-text" lang="ar">{esc(t)}</p>\n'
-                f'            <p class="fact-text muted" lang="en" dir="ltr" style="font-size:.85rem">{esc(e)}</p>\n'
+                f'            <p class="fact-text ar-only" lang="ar">{esc(t)}</p>\n'
+                f'            <p class="fact-text en-only" lang="en" dir="ltr">{esc(e)}</p>\n'
                 f'          </article>\n')
         out.append("        </div>\n")
     out.append("      </div>\n    </section>\n")
@@ -148,7 +165,7 @@ def build_videos_page():
         if not items:
             continue
         ar, en = CAT_INFO[key]
-        out.append(f'        <h2 id="{key}">{ar} <span class="muted" lang="en">/ {en}</span> <span class="count">({len(items)})</span></h2>\n')
+        out.append(f'        <h2 id="{key}"><span class="ar-only">{ar}</span> <span class="en-only">{en}</span> <span class="count">({len(items)})</span></h2>\n')
         out.append('        <div class="video-grid">\n')
         for vid, title in items:
             out.append(
@@ -242,7 +259,7 @@ def build_articles_pages(cats):
         if not items:
             continue
         ar, en, _ = cats[key]
-        out.append(f'        <h2 id="{key}">{ar} <span class="muted" lang="en">/ {en}</span> <span class="count">({len(items)})</span></h2>\n')
+        out.append(f'        <h2 id="{key}"><span class="ar-only">{ar}</span> <span class="en-only">{en}</span> <span class="count">({len(items)})</span></h2>\n')
         out.append('        <div class="video-grid">\n')
         for a in items:
             out.append(article_card(a, cats))

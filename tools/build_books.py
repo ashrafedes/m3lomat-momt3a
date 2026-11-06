@@ -201,6 +201,7 @@ HEAD = """<!DOCTYPE html>
         <a href="facts.html">{f}</a>
       </nav>
       <a class="btn yt sm" href="https://www.youtube.com/@m3lomat-momt3a?sub_confirmation=1" target="_blank" rel="noopener">▶ {sub}</a>
+      <button class="lang-btn" id="langBtn" onclick="window.location.href=location.pathname.endsWith('books-en.html')?'books.html':'books-en.html'">{toggle}</button>
     </div>
   </header>
   <main>
@@ -295,11 +296,11 @@ def book_page(bk, lang, idx, sections, back_page, dl, free):
     fname = book_page_filename(lang, idx)
     head = HEAD.format(lang=lang, dir=("rtl" if lang == "ar" else "ltr"),
                        title=f'{bk["dt"]} | معلومات ممتعة', desc=bk["sm"][:150], page=fname,
-                       sub="اشترك", home="هل تعلم؟", v="فيديوهات", a="مقالات", b="كتب", f="المعلومات") \
+                       sub="اشترك", home="هل تعلم؟", v="فيديوهات", a="مقالات", b="كتب", f="المعلومات", toggle="EN") \
         if lang == "ar" else HEAD.format(
         lang=lang, dir="ltr", title=f'{bk["dt"]} | M3lomat Momt3a',
         desc=bk["sm"][:150], page=fname, sub="Subscribe", home="Did You Know?",
-        v="Videos", a="Articles", b="Books", f="Facts")
+        v="Videos", a="Articles", b="Books", f="Facts", toggle="عربي")
     open(os.path.join(ROOT, fname), "w", encoding="utf-8").write(head + body + FOOT)
 
 
@@ -318,7 +319,8 @@ def build(books, sections, lang, page, title, desc, sub, home, v, a, b, f, dl, f
     for bk in all_books:
         groups.setdefault(bk["sec"], []).append(bk)
     out = [HEAD.format(lang=lang, dir=dir_, title=title, desc=desc, page=page,
-                       sub=sub, home=home, v=v, a=a, b=b, f=f)]
+                       sub=sub, home=home, v=v, a=a, b=b, f=f,
+                       toggle=("EN" if lang == "ar" else "عربي"))]
     out.append(f'        <h1>{esc(title.split("|")[0].strip())} <span class="count">({len(all_books)})</span></h1>\n')
     out.append(f'        <p class="page-sub">{desc}</p>\n')
     out.append('        <nav class="chips cat-index">\n')
