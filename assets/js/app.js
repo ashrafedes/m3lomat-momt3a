@@ -42,6 +42,9 @@
       read_more: "اقرأ المقال",
       photo_by: "الصورة:",
       see_also: "شوف كمان الفيديوهات دي",
+      best_head: "أفضل فيديو",
+      best_sub: "أعلى مشاهدة في آخر {n} يوم",
+      views_n: "مشاهدة",
       vlinks_head: "أحدث فيديوهات القناة"
     },
     en: {
@@ -82,6 +85,9 @@
       read_more: "Read article",
       photo_by: "Photo:",
       see_also: "See also these videos",
+      best_head: "Best Video",
+      best_sub: "top views in the last {n} days",
+      views_n: "views",
       vlinks_head: "Latest channel videos"
     }
   };
@@ -598,6 +604,58 @@
     vlinkCountEl.textContent = "(" + list.length + ")";
   }
 
+  // ---------- best video (trending) ----------
+
+  var bestEl = document.getElementById("best");
+  var bestGridEl = document.getElementById("bestGrid");
+  var bestSubEl = document.getElementById("bestSub");
+
+  function fmtViews(n) {
+    if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M";
+    if (n >= 1e3) return (n / 1e3).toFixed(1).replace(/\.0$/, "") + "K";
+    return String(n);
+  }
+
+  function renderBest() {
+    if (typeof TRENDING === "undefined" || !TRENDING.vids.length) return;
+    bestEl.hidden = false;
+    bestSubEl.textContent = "(" + t("best_sub").replace("{n}", TRENDING.window) + ")";
+    bestGridEl.innerHTML = "";
+    TRENDING.vids.forEach(function (v, idx) {
+      var card = document.createElement("div");
+      card.className = "video-card" + (idx === 0 ? " featured" : "");
+
+      var thumb = document.createElement("div");
+      thumb.className = "thumb";
+      var img = document.createElement("img");
+      img.loading = "lazy";
+      img.src = "https://i.ytimg.com/vi/" + v.id + "/hqdefault.jpg";
+      img.alt = v.t;
+      var play = document.createElement("span");
+      play.className = "play";
+      play.textContent = "▶";
+      var rank = document.createElement("span");
+      rank.className = "rank-badge";
+      rank.textContent = "#" + (idx + 1);
+      var views = document.createElement("span");
+      views.className = "views-badge";
+      views.textContent = fmtViews(v.v) + " " + t("views_n");
+      thumb.appendChild(img);
+      thumb.appendChild(play);
+      thumb.appendChild(rank);
+      thumb.appendChild(views);
+
+      var h3 = document.createElement("h3");
+      h3.textContent = v.t;
+      h3.dir = "auto";
+
+      card.appendChild(thumb);
+      card.appendChild(h3);
+      card.addEventListener("click", function () { embedVideo(card, v.id); });
+      bestGridEl.appendChild(card);
+    });
+  }
+
   // ---------- events ----------
 
   newFactBtn.addEventListener("click", showRandomFact);
@@ -672,6 +730,7 @@
     renderVideos(true);
     renderArticles(true);
     renderVideoLinks();
+    renderBest();
     paintRandom();
   });
 
@@ -691,5 +750,6 @@
   renderVideos(true);
   renderArticles(true);
   renderVideoLinks();
+  renderBest();
   showRandomFact();
 })();
