@@ -234,5 +234,13 @@
   <script src="assets/js/trending.js"></script>
   <script src="assets/js/articles.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+    try {
+      var _l = localStorage.getItem("lang") || "ar";
+      document.querySelectorAll("a[href='books.html'], a[href='books-en.html']").forEach(function (x) {
+        x.href = (_l === "en") ? "books-en.html" : "books.html";
+      });
+    } catch (e) {}
+  </script>
 </body>
 </html>

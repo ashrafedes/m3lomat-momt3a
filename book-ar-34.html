@@ -48,5 +48,13 @@
       <p>معلومات ممتعة — m3lomat-momt3a.org</p>
     </div>
   </footer>
+  <script>
+    try {
+      var _l = localStorage.getItem("lang") || "ar";
+      document.querySelectorAll('a[href="books.html"], a[href="books-en.html"]').forEach(function (x) {
+        x.href = (_l === "en") ? "books-en.html" : "books.html";
+      });
+    } catch (e) {}
+  </script>
 </body>
 </html>

@@ -344,6 +344,9 @@
       h.dataset.lang = l; h.lang = l; h.dir = (l === "en") ? "ltr" : "rtl";
       var b = document.getElementById("langBtn");
       if (b) b.textContent = (l === "en") ? "عربي" : "EN";
+      document.querySelectorAll('a[href="books.html"], a[href="books-en.html"]').forEach(function (x) {
+        x.href = (l === "en") ? "books-en.html" : "books.html";
+      });
     }
     function toggleLang() {
       var l = (document.documentElement.dataset.lang === "en") ? "ar" : "en";
