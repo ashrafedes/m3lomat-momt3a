@@ -109,20 +109,23 @@ def main():
                f"      <video:tag>{esc(cat_ar)}</video:tag>",
                "      <video:tag>معلومات ممتعة</video:tag>",
                "    </video:video>"]
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
     sm += ["  </url>",
            "  <url>",
            f"    <loc>{DOMAIN}/videos.html</loc>",
-           f"    <lastmod>{datetime.now(timezone.utc).strftime('%Y-%m-%d')}</lastmod>",
+           f"    <lastmod>{today}</lastmod>",
            "    <changefreq>weekly</changefreq>",
            "    <priority>0.9</priority>",
            "  </url>",
            "  <url>",
            f"    <loc>{DOMAIN}/articles.html</loc>",
+           f"    <lastmod>{today}</lastmod>",
            "    <changefreq>monthly</changefreq>",
            "    <priority>0.8</priority>",
            "  </url>",
            "  <url>",
            f"    <loc>{DOMAIN}/facts.html</loc>",
+           f"    <lastmod>{today}</lastmod>",
            "    <changefreq>monthly</changefreq>",
            "    <priority>0.8</priority>",
            "  </url>"]
@@ -133,6 +136,7 @@ def main():
         for i in range(n):
             sm += ["  <url>",
                    f"    <loc>{DOMAIN}/article-{i}.html</loc>",
+                   f"    <lastmod>{today}</lastmod>",
                    "    <changefreq>monthly</changefreq>",
                    "    <priority>0.6</priority>",
                    "  </url>"]
