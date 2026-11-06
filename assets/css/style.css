@@ -235,6 +235,19 @@ body {
 .library h1, .videos h1 { font-size: 1.8rem; font-weight: 900; }
 .library h2, .videos h2 { font-size: 1.3rem; font-weight: 800; margin: 2.2rem 0 1.1rem; }
 
+/* Books pages */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.1rem;
+}
+.book-thumb { aspect-ratio: 3/4 !important; max-height: 220px; }
+.book-thumb img { object-fit: cover; object-position: top; }
+.book-info { padding: .9rem 1rem 1.1rem; display: flex; flex-direction: column; gap: .35rem; }
+.book-author { color: var(--muted); font-size: .82rem; font-weight: 600; }
+.book-summary { color: var(--text); font-size: .88rem; line-height: 1.7; }
+.book-dl { margin-top: .5rem; align-self: flex-start; }
+
 /* Category index on static pages */
 .cat-index { margin: -.4rem 0 .5rem; }
 a.chip { text-decoration: none; display: inline-block; }
