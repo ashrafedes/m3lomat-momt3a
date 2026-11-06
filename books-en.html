@@ -45,7 +45,7 @@
               <h3 dir="auto"><a href="book-en-0.html">Pride and Prejudice</a></h3>
               <p class="book-author" dir="auto">Jane Austen</p>
               <p class="book-summary" dir="auto">Elizabeth Bennet versus her own pride and Mr Darcy's prejudice — the wittiest courtship in English literature.</p>
-              <a class="btn primary sm book-dl" href="https://books.google.com/books?q=Pride%20and%20Prejudice%20Jane%20Austen" target="_blank" rel="noopener">Preview / Download</a>
+              <a class="btn primary sm book-dl" href="https://www.gutenberg.org/ebooks/1342" target="_blank" rel="noopener">Free download <span class="chip" style="pointer-events:none;font-size:.7rem;padding:.1rem .5rem">FREE</span></a>
             </div>
           </div>
           <div class="video-card">
@@ -63,7 +63,7 @@
               <h3 dir="auto"><a href="book-en-2.html">Frankenstein</a></h3>
               <p class="book-author" dir="auto">Mary Shelley</p>
               <p class="book-summary" dir="auto">A scientist builds life then abandons it — the original science-fiction novel and still its most haunting.</p>
-              <a class="btn primary sm book-dl" href="https://books.google.com/books?q=Frankenstein%20Mary%20Shelley" target="_blank" rel="noopener">Preview / Download</a>
+              <a class="btn primary sm book-dl" href="https://www.gutenberg.org/ebooks/84" target="_blank" rel="noopener">Free download <span class="chip" style="pointer-events:none;font-size:.7rem;padding:.1rem .5rem">FREE</span></a>
             </div>
           </div>
           <div class="video-card">
@@ -72,7 +72,7 @@
               <h3 dir="auto"><a href="book-en-3.html">Dracula</a></h3>
               <p class="book-author" dir="auto">Bram Stoker</p>
               <p class="book-summary" dir="auto">Count Dracula leaves Transylvania for London — the gothic novel that defined the modern vampire.</p>
-              <a class="btn primary sm book-dl" href="https://books.google.com/books?q=Dracula%20Bram%20Stoker" target="_blank" rel="noopener">Preview / Download</a>
+              <a class="btn primary sm book-dl" href="https://www.gutenberg.org/ebooks/345" target="_blank" rel="noopener">Free download <span class="chip" style="pointer-events:none;font-size:.7rem;padding:.1rem .5rem">FREE</span></a>
             </div>
           </div>
           <div class="video-card">
@@ -135,7 +135,7 @@
               <h3 dir="auto"><a href="book-en-10.html">The Brothers Karamazov</a></h3>
               <p class="book-author" dir="auto">Fyodor Dostoevsky</p>
               <p class="book-summary" dir="auto">Three brothers, a murdered father, and every question of faith and doubt ever asked — Dostoevsky's summit.</p>
-              <a class="btn primary sm book-dl" href="https://books.google.com/books?q=The%20Brothers%20Karamazov%20Fyodor%20Dostoevsky" target="_blank" rel="noopener">Preview / Download</a>
+              <a class="btn primary sm book-dl" href="https://www.gutenberg.org/ebooks/28054" target="_blank" rel="noopener">Free download <span class="chip" style="pointer-events:none;font-size:.7rem;padding:.1rem .5rem">FREE</span></a>
             </div>
           </div>
           <div class="video-card">
@@ -144,7 +144,7 @@
               <h3 dir="auto"><a href="book-en-11.html">War and Peace</a></h3>
               <p class="book-author" dir="auto">Leo Tolstoy</p>
               <p class="book-summary" dir="auto">Napoleon invades Russia through aristocratic salons and battlefields — the great novel of an era.</p>
-              <a class="btn primary sm book-dl" href="https://books.google.com/books?q=War%20and%20Peace%20Leo%20Tolstoy" target="_blank" rel="noopener">Preview / Download</a>
+              <a class="btn primary sm book-dl" href="https://www.gutenberg.org/ebooks/2600" target="_blank" rel="noopener">Free download <span class="chip" style="pointer-events:none;font-size:.7rem;padding:.1rem .5rem">FREE</span></a>
             </div>
           </div>
           <div class="video-card">
@@ -171,7 +171,7 @@
               <h3 dir="auto"><a href="book-en-14.html">The Picture of Dorian Gray</a></h3>
               <p class="book-author" dir="auto">Oscar Wilde</p>
               <p class="book-summary" dir="auto">A portrait ages while its sitter stays beautiful — Wilde's glittering meditation on vanity and corruption.</p>
-              <a class="btn primary sm book-dl" href="https://books.google.com/books?q=The%20Picture%20of%20Dorian%20Gray%20Oscar%20Wilde" target="_blank" rel="noopener">Preview / Download</a>
+              <a class="btn primary sm book-dl" href="https://www.gutenberg.org/ebooks/174" target="_blank" rel="noopener">Free download <span class="chip" style="pointer-events:none;font-size:.7rem;padding:.1rem .5rem">FREE</span></a>
             </div>
           </div>
           <div class="video-card">
@@ -501,5 +501,13 @@
       <p>معلومات ممتعة — m3lomat-momt3a.org</p>
     </div>
   </footer>
+  <script>
+    try {
+      var _l = localStorage.getItem("lang") || "ar";
+      document.querySelectorAll('a[href="books.html"], a[href="books-en.html"]').forEach(function (x) {
+        x.href = (_l === "en") ? "books-en.html" : "books.html";
+      });
+    } catch (e) {}
+  </script>
 </body>
 </html>
