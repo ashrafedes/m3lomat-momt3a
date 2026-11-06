@@ -264,6 +264,12 @@ html[data-lang="en"] .ar-only, html[data-lang="ar"] .en-only { display: none; }
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.1rem;
 }
+.book-layout { display: grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+.book-side { position: sticky; top: 80px; max-height: calc(100vh - 110px); overflow-y: auto; }
+.book-side .side-title { font-size: 1.05rem; font-weight: 800; margin-bottom: .9rem; }
+.book-side .video-card { margin-bottom: .8rem; }
+.book-side .video-card h3 { font-size: .82rem; }
+@media (max-width: 860px) { .book-layout { grid-template-columns: 1fr; } .book-side { position: static; max-height: none; } }
 .book-thumb { display: block; height: 200px; background: var(--bg-soft); }
 .book-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .book-thumb .thumb { height: 100%; aspect-ratio: auto; }

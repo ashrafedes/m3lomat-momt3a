@@ -288,10 +288,31 @@ def card(title, author, summary, link, img, link_label, free, page=None):
           </div>
 '''
 
-def book_page(bk, lang, idx, sections, back_page, dl, free):
+def load_videos_flat():
+    src = open(os.path.join(ROOT, "assets/js/videos.js"), encoding="utf-8").read()
+    return re.findall(r'\["([^"]+)","(\w+)","((?:[^"\\]|\\.)*)","[^"]*",\d+\]', src)
+
+
+def video_side(bk_idx, vids, lang):
+    """5 channel videos for the sidebar, rotated by book index."""
+    if not vids:
+        return ""
+    picks = [vids[(bk_idx * 13 + k * 7) % len(vids)] for k in range(min(5, len(vids)))]
+    title = "فيديوهات القناة" if lang == "ar" else "Channel Videos"
+    cards = "".join(
+        f'        <a class="video-card" href="https://www.youtube.com/watch?v={v[0]}" target="_blank" rel="noopener">\n'
+        f'          <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/{v[0]}/mqdefault.jpg" alt="{esc(v[2])}"><span class="play">▶</span></div>\n'
+        f'          <h3 dir="auto">{esc(v[2])}</h3>\n'
+        f'        </a>\n' for v in picks)
+    return f'      <aside class="book-side">\n        <h2 class="side-title">{title}</h2>\n{cards}      </aside>\n'
+
+
+def book_page(bk, lang, idx, sections, back_page, dl, free, vids):
     link, img = bk["link"], bk["img"]
     img_html = f'<img class="article-hero" style="max-width:220px" src="{img}" alt="{esc(bk["dt"])}">' if img else ""
-    body = f"""        <nav class="breadcrumb"><a href="{back_page}">{'الكتب' if lang=='ar' else 'Books'}</a> / <a href="{back_page}#{bk['sec']}">{esc(sections[bk['sec']])}</a></nav>
+    body = f"""        <div class="book-layout">
+        <div>
+        <nav class="breadcrumb"><a href="{back_page}">{'الكتب' if lang=='ar' else 'Books'}</a> / <a href="{back_page}#{bk['sec']}">{esc(sections[bk['sec']])}</a></nav>
         <article>
           <h1>{esc(bk['dt'])}</h1>
           <p class="book-author">{esc(bk['au'])}</p>
@@ -300,6 +321,8 @@ def book_page(bk, lang, idx, sections, back_page, dl, free):
           <p><a class="btn primary" href="{link}" target="_blank" rel="noopener">{free if bk["free"] else dl}</a></p>
         </article>
         <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Book","name":"{esc(bk['dt'])}","author":"{esc(bk['au'])}","image":"{img}","inLanguage":"{lang}"}}</script>
+        </div>
+{video_side(idx, vids, lang)}        </div>
 """
     fname = book_page_filename(lang, idx)
     head = HEAD.format(lang=lang, dir=("rtl" if lang == "ar" else "ltr"),
@@ -316,6 +339,7 @@ def build(books, sections, lang, page, title, desc, sub, home, v, a, b, f, dl, f
     cache = {}
     if os.path.exists(CACHE):
         cache = json.load(open(CACHE, encoding="utf-8"))
+    vids = load_videos_flat()
     all_books = []
     for _b in books:
         if isinstance(_b, dict):
@@ -350,7 +374,7 @@ def build(books, sections, lang, page, title, desc, sub, home, v, a, b, f, dl, f
             if "img" not in bk:
                 bk["img"] = cover_for(bk["qt"], bk["au"], cache)
             fname = book_page_filename(lang, idx)
-            book_page(bk, lang, idx, sections, page, dl, free_dl)
+            book_page(bk, lang, idx, sections, page, dl, free_dl, vids)
             out.append(card(bk["dt"], bk["au"], bk["sm"], bk["link"], bk["img"],
                             free_dl if bk["free"] else dl, bk["free"], fname))
             idx += 1

@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "assets/js/books_data.js"
+      - "tools/build_books.py"
     branches: [main]
   workflow_dispatch:
 
