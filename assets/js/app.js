@@ -37,6 +37,7 @@
       dyk: "هل تعلم؟ ",
       nav_articles: "مقالات",
       articles_head: "مقالات ممتعة",
+      all_articles: "كل المقالات",
       articles_n: "مقال",
       article_search_ph: "ابحث في المقالات…",
       read_more: "اقرأ المقال",
@@ -80,6 +81,7 @@
       dyk: "Did you know? ",
       nav_articles: "Articles",
       articles_head: "Fun Articles",
+      all_articles: "All articles",
       articles_n: "articles",
       article_search_ph: "Search articles…",
       read_more: "Read article",
@@ -384,138 +386,17 @@
     loadMoreWrap.style.display = renderedCount < list.length ? "" : "none";
   }
 
-  // ---------- articles ----------
+  // ---------- articles summary (full library: articles.html) ----------
 
-  var APAGE = 12;
-  var articleChipsEl = document.getElementById("articleChips");
   var articleGridEl = document.getElementById("articleGrid");
-  var articleSearchEl = document.getElementById("articleSearch");
-  var articleCountEl = document.getElementById("articleCount");
-  var articleEmptyEl = document.getElementById("articleEmpty");
-  var articleLoadMoreWrap = document.getElementById("articleLoadMoreWrap");
-  var articleLoadMoreBtn = document.getElementById("articleLoadMore");
-
-  var modalEl = document.getElementById("articleModal");
-  var modalImg = document.getElementById("modalImg");
-  var modalCat = document.getElementById("modalCat");
-  var modalTitle = document.getElementById("modalTitle");
-  var modalText = document.getElementById("modalText");
-  var modalCredit = document.getElementById("modalCredit");
-  var articleCloseBtn = document.getElementById("articleClose");
-
-  var articleCat = "all";
-  var articleRendered = 0;
 
   function artTitle(a) { return lang === "en" && a.te ? a.te : a.ta; }
   function artBody(a) { return lang === "en" && a.be ? a.be : a.ba; }
 
-  function buildArticleChips() {
-    articleChipsEl.innerHTML = "";
-    var allBtn = document.createElement("button");
-    allBtn.className = "chip" + (articleCat === "all" ? " active" : "");
-    allBtn.dataset.cat = "all";
-    allBtn.textContent = t("all");
-    articleChipsEl.appendChild(allBtn);
-
-    Object.keys(CATEGORIES).forEach(function (key) {
-      var btn = document.createElement("button");
-      btn.className = "chip" + (articleCat === key ? " active" : "");
-      btn.dataset.cat = key;
-      btn.textContent = catName(key);
-      articleChipsEl.appendChild(btn);
-    });
-  }
-
-  function filteredArticles() {
-    var q = articleSearchEl.value.trim().toLowerCase();
-    return ARTICLES.filter(function (a) {
-      var matchCat = articleCat === "all" || a.c === articleCat;
-      var matchSearch = q === "" ||
-        a.ta.indexOf(q) !== -1 || a.ba.indexOf(q) !== -1 ||
-        (a.te && a.te.toLowerCase().indexOf(q) !== -1) ||
-        (a.be && a.be.toLowerCase().indexOf(q) !== -1);
-      return matchCat && matchSearch;
-    });
-  }
-
-  var ART_VC = {
-    space: ["facts"], science: ["facts", "tech"], animals: ["animals"],
-    human: ["health"], history: ["facts", "news"], tech: ["tech"],
-    nature: ["animals", "misc"], geo: ["facts", "news"]
-  };
-
-  var modalVideosEl = document.getElementById("modalVideos");
-
-  function relatedVideos(a) {
-    var cats = ART_VC[a.c] || ["misc"];
-    var pool = VIDEOS.filter(function (v) { return cats.indexOf(v[1]) !== -1; });
-    var picked = [];
-    for (var k = 0; k < 5 && pool.length; k++) {
-      picked.push(pool[(a.i * 7 + k) % pool.length]);
-    }
-    return picked;
-  }
-
-  function openArticle(a) {
-    modalImg.src = a.img;
-    modalImg.alt = artTitle(a);
-    var cat = CATEGORIES[a.c];
-    modalCat.textContent = catName(a.c);
-    modalCat.style.background = cat.color + "22";
-    modalCat.style.borderColor = cat.color + "55";
-    modalCat.style.color = cat.color;
-    modalTitle.textContent = artTitle(a);
-    modalTitle.dir = "auto";
-
-    var paras = (lang === "en" && a.pe ? a.pe : a.pa) || [artBody(a)];
-    modalText.innerHTML = "";
-    paras.forEach(function (t) {
-      var p = document.createElement("p");
-      p.className = "modal-text";
-      p.textContent = t;
-      p.dir = "auto";
-      modalText.appendChild(p);
-    });
-
-    modalVideosEl.innerHTML = "";
-    relatedVideos(a).forEach(function (v) {
-      var wrap = document.createElement("div");
-      wrap.className = "mv";
-      var iframe = document.createElement("iframe");
-      iframe.loading = "lazy";
-      iframe.src = "https://www.youtube-nocookie.com/embed/" + v[0] + "?rel=0";
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      iframe.title = v[2];
-      var cap = document.createElement("div");
-      cap.className = "mv-title";
-      cap.textContent = v[2];
-      cap.dir = "auto";
-      wrap.appendChild(iframe);
-      wrap.appendChild(cap);
-      modalVideosEl.appendChild(wrap);
-    });
-
-    if (a.ph) {
-      modalCredit.hidden = false;
-      modalCredit.href = a.phu;
-      modalCredit.textContent = t("photo_by") + " " + a.ph + " — Pexels";
-    } else {
-      modalCredit.hidden = true;
-    }
-    modalEl.hidden = false;
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeArticle() {
-    modalEl.hidden = true;
-    modalVideosEl.innerHTML = "";
-    document.body.style.overflow = "";
-  }
-
   function makeArticleCard(a) {
-    var card = document.createElement("article");
+    var card = document.createElement("a");
     card.className = "article-card";
+    card.href = "article-" + a.i + ".html";
 
     var thumb = document.createElement("div");
     thumb.className = "thumb";
@@ -541,7 +422,7 @@
 
     var foot = document.createElement("div");
     foot.className = "card-foot";
-    var readBtn = document.createElement("button");
+    var readBtn = document.createElement("span");
     readBtn.className = "btn ghost sm";
     readBtn.textContent = t("read_more");
     foot.appendChild(readBtn);
@@ -551,25 +432,14 @@
     body.appendChild(foot);
     card.appendChild(thumb);
     card.appendChild(body);
-    card.addEventListener("click", function () { openArticle(a); });
     return card;
   }
 
-  function renderArticles(reset) {
-    var list = filteredArticles();
-    if (reset) {
-      articleGridEl.innerHTML = "";
-      articleRendered = 0;
-    }
-    var end = Math.min(articleRendered + APAGE, list.length);
-    for (var i = articleRendered; i < end; i++) {
-      articleGridEl.appendChild(makeArticleCard(list[i]));
-    }
-    articleRendered = end;
-
-    articleCountEl.textContent = "(" + list.length + " " + t("articles_n") + ")";
-    articleEmptyEl.hidden = list.length !== 0;
-    articleLoadMoreWrap.style.display = articleRendered < list.length ? "" : "none";
+  function renderArticles() {
+    articleGridEl.innerHTML = "";
+    ARTICLES.slice(0, 6).forEach(function (a) {
+      articleGridEl.appendChild(makeArticleCard(a));
+    });
   }
 
   // ---------- video links ----------
@@ -687,32 +557,6 @@
 
   loadMoreBtn.addEventListener("click", function () { renderVideos(false); });
 
-  articleChipsEl.addEventListener("click", function (e) {
-    var btn = e.target.closest(".chip");
-    if (!btn) return;
-    articleCat = btn.dataset.cat;
-    articleChipsEl.querySelectorAll(".chip").forEach(function (c) {
-      c.classList.toggle("active", c === btn);
-    });
-    renderArticles(true);
-  });
-
-  articleLoadMoreBtn.addEventListener("click", function () { renderArticles(false); });
-
-  var aDebounce;
-  articleSearchEl.addEventListener("input", function () {
-    clearTimeout(aDebounce);
-    aDebounce = setTimeout(function () { renderArticles(true); }, 150);
-  });
-
-  articleCloseBtn.addEventListener("click", closeArticle);
-  modalEl.addEventListener("click", function (e) {
-    if (e.target === modalEl) closeArticle();
-  });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && !modalEl.hidden) closeArticle();
-  });
-
   var vDebounce;
   videoSearchEl.addEventListener("input", function () {
     clearTimeout(vDebounce);
@@ -725,10 +569,9 @@
     applyI18n();
     buildChips();
     buildVideoChips();
-    buildArticleChips();
     renderGrid();
     renderVideos(true);
-    renderArticles(true);
+    renderArticles();
     renderVideoLinks();
     renderBest();
     paintRandom();
@@ -745,10 +588,9 @@
   applyI18n();
   buildChips();
   buildVideoChips();
-  buildArticleChips();
   renderGrid();
   renderVideos(true);
-  renderArticles(true);
+  renderArticles();
   renderVideoLinks();
   renderBest();
   showRandomFact();

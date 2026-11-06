@@ -306,6 +306,7 @@ html[dir="ltr"] .toast.show { transform: translateX(-50%) translateY(0); }
 }
 
 .article-card {
+  text-decoration: none; color: inherit;
   background: var(--card);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);

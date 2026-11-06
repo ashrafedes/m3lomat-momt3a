@@ -174,6 +174,34 @@ def load_articles():
     return json.loads(m.group(1))
 
 
+def load_videos_flat():
+    src = open(os.path.join(ROOT, "assets/js/videos.js"), encoding="utf-8").read()
+    return re.findall(r'\["([^"]+)","(\w+)","((?:[^"\\]|\\.)*)","[^"]*",\d+\]', src)
+
+
+# article category -> video categories to pull related videos from
+ART_VC = {
+    "space": ["facts"], "science": ["facts", "tech"], "animals": ["animals"],
+    "human": ["health"], "history": ["facts", "news"], "tech": ["tech"],
+    "nature": ["animals", "misc"], "geo": ["facts", "news"],
+}
+
+
+def related_videos(a, vids):
+    cats = ART_VC.get(a["c"], ["misc"])
+    pool = [v for v in vids if v[1] in cats]
+    return [pool[(a["i"] * 7 + k) % len(pool)] for k in range(min(5, len(pool)))]
+
+
+def video_card(v):
+    vid, _cat, title = v
+    return (
+        f'          <a class="video-card" href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener">\n'
+        f'            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/{vid}/mqdefault.jpg" alt="{esc(title)}"><span class="play">▶</span></div>\n'
+        f'            <h3 dir="auto">{esc(title)}</h3>\n'
+        f'          </a>\n')
+
+
 def article_card(a, cats):
     ar, en, color = cats[a["c"]]
     return (
@@ -185,6 +213,7 @@ def article_card(a, cats):
 
 def build_articles_pages(cats):
     articles = load_articles()
+    vids = load_videos_flat()
     by_cat = {}
     for a in articles:
         by_cat.setdefault(a["c"], []).append(a)
@@ -256,6 +285,12 @@ def build_articles_pages(cats):
           {body_paras}
         </article>
 """)
+        rv = related_videos(a, vids)
+        if rv:
+            out.append('        <h2>شوف كمان الفيديوهات دي</h2>\n        <div class="video-grid">\n')
+            for v in rv:
+                out.append(video_card(v))
+            out.append("        </div>\n")
         if related:
             out.append(f'        <h2>مقالات ذات صلة</h2>\n        <div class="video-grid">\n')
             for r in related:

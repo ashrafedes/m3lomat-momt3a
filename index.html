@@ -167,27 +167,14 @@
       </div>
     </section>
 
-    <!-- Articles -->
+    <!-- Articles summary -> full library at articles.html -->
     <section class="articles" id="articles">
       <div class="container">
         <div class="section-head">
-          <h2><span data-i18n="articles_head">مقالات ممتعة</span> <span class="count" id="articleCount"></span></h2>
+          <h2><span data-i18n="articles_head">مقالات ممتعة</span></h2>
+          <a class="btn ghost sm" href="articles.html" data-i18n="all_articles">كل المقالات</a>
         </div>
-
-        <div class="controls">
-          <div class="search-box">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            <input type="search" id="articleSearch" data-i18n-ph="article_search_ph" placeholder="ابحث في المقالات…">
-          </div>
-          <div class="chips" id="articleChips"></div>
-        </div>
-
         <div class="article-grid" id="articleGrid"></div>
-        <p class="empty" id="articleEmpty" data-i18n="empty" hidden>لا توجد نتائج مطابقة لبحثك.</p>
-
-        <div class="load-more" id="articleLoadMoreWrap">
-          <button class="btn ghost" id="articleLoadMore" data-i18n="load_more">عرض المزيد</button>
-        </div>
       </div>
     </section>
 
@@ -238,21 +225,6 @@
       <p class="muted" data-i18n="footer_2">تابعنا على يوتيوب لكل جديد — شارك المعرفة مع أصدقائك</p>
     </div>
   </footer>
-
-  <div class="modal" id="articleModal" hidden>
-    <div class="modal-card">
-      <button class="modal-close" id="articleClose" aria-label="Close">✕</button>
-      <img class="modal-img" id="modalImg" alt="">
-      <div class="modal-body">
-        <span class="fact-cat" id="modalCat"></span>
-        <h3 id="modalTitle"></h3>
-        <div id="modalText"></div>
-        <a class="modal-credit" id="modalCredit" target="_blank" rel="noopener"></a>
-        <h4 class="modal-subhead" data-i18n="see_also">شوف كمان الفيديوهات دي</h4>
-        <div class="modal-videos" id="modalVideos"></div>
-      </div>
-    </div>
-  </div>
 
   <div class="toast" id="toast">تم النسخ</div>
 
