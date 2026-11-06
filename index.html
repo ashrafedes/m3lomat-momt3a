@@ -67,6 +67,7 @@
         <a href="#random" data-i18n="nav_dyak">هل تعلم؟</a>
         <a href="#videos" data-i18n="nav_videos">فيديوهات</a>
         <a href="#facts" data-i18n="nav_facts">المعلومات</a>
+        <a href="#articles" data-i18n="nav_articles">مقالات</a>
       </nav>
       <div class="header-actions">
         <button class="lang-btn" id="langBtn" aria-label="Switch to English">EN</button>
@@ -155,6 +156,41 @@
         <p class="empty" id="emptyMsg" data-i18n="empty" hidden>لا توجد نتائج مطابقة لبحثك.</p>
       </div>
     </section>
+
+    <!-- Articles -->
+    <section class="articles" id="articles">
+      <div class="container">
+        <div class="section-head">
+          <h2><span data-i18n="articles_head">مقالات ممتعة</span> <span class="count" id="articleCount"></span></h2>
+        </div>
+
+        <div class="controls">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" id="articleSearch" data-i18n-ph="article_search_ph" placeholder="ابحث في المقالات…">
+          </div>
+          <div class="chips" id="articleChips"></div>
+        </div>
+
+        <div class="article-grid" id="articleGrid"></div>
+        <p class="empty" id="articleEmpty" data-i18n="empty" hidden>لا توجد نتائج مطابقة لبحثك.</p>
+
+        <div class="load-more" id="articleLoadMoreWrap">
+          <button class="btn ghost" id="articleLoadMore" data-i18n="load_more">عرض المزيد</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video links -->
+    <section class="video-links" id="video-links">
+      <div class="container">
+        <div class="section-head">
+          <h2><span data-i18n="vlinks_head">أحدث فيديوهات القناة</span> <span class="count" id="vlinkCount"></span></h2>
+          <a class="btn yt sm" href="https://www.youtube.com/@m3lomat-momt3a/videos" target="_blank" rel="noopener" data-i18n="all_videos">كل الفيديوهات على يوتيوب</a>
+        </div>
+        <div class="vlinks" id="videoLinks"></div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -193,10 +229,24 @@
     </div>
   </footer>
 
+  <div class="modal" id="articleModal" hidden>
+    <div class="modal-card">
+      <button class="modal-close" id="articleClose" aria-label="Close">✕</button>
+      <img class="modal-img" id="modalImg" alt="">
+      <div class="modal-body">
+        <span class="fact-cat" id="modalCat"></span>
+        <h3 id="modalTitle"></h3>
+        <p class="modal-text" id="modalText"></p>
+        <a class="modal-credit" id="modalCredit" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast">تم النسخ</div>
 
   <script src="assets/js/facts.js"></script>
   <script src="assets/js/videos.js"></script>
+  <script src="assets/js/articles.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
