@@ -1,4 +1,4 @@
-# معلومات ممتعة — m3lomat-momt3a.bestsell.site
+# معلومات ممتعة — m3lomat-momt3a.org
 
 الموقع الرسمي لقناة [معلومات ممتعة | Fun Facts](https://www.youtube.com/@m3lomat-momt3a) على يوتيوب — موقع ثابت (static) يعرض معلومات وحقائق ممتعة مصنّفة حسب الفئة، مع بحث وزر "معلومة جديدة" وأحدث فيديوهات القناة.
 
@@ -28,10 +28,11 @@
    - Build Command: اتركه فارغًا
    - Publish Directory: `.`
 3. في **Settings → Custom Domains** أضف:
-   `m3lomat-momt3a.bestsell.site`
-4. في DNS الخاص بالنطاق `bestsell.site` أضف سجل:
+   `m3lomat-momt3a.org`
+4. في DNS الخاص بالنطاق `m3lomat-momt3a.org` (Namecheap → Advanced DNS) أضف:
    ```
-   CNAME  m3lomat-momt3a  →  <your-service>.onrender.com
+   A Record     @    →  216.24.57.1
+   CNAME Record www  →  <your-service>.onrender.com
    ```
    Render يوفّر شهادة HTTPS تلقائيًا بعد إضافة السجل.
 
