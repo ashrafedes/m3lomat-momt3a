@@ -43,6 +43,7 @@ body {
   width: 34px; height: 34px; border-radius: 10px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   font-weight: 900; font-size: 1.2rem;
+  object-fit: cover;
 }
 .nav { display: flex; gap: 1.4rem; }
 .nav a { color: var(--muted); text-decoration: none; font-weight: 600; transition: color .2s; }

@@ -18,7 +18,7 @@ HEAD = """<!DOCTYPE html>
   <meta name="description" content="{desc}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://m3lomat-momt3a.org/{page}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%237c3aed'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>؟</text></svg>">
+  <link rel="icon" href="assets/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@ HEAD = """<!DOCTYPE html>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-mark">؟</span>
+        <img class="logo-mark" src="assets/img/logo.png" alt="معلومات ممتعة">
         <span>معلومات <strong>ممتعة</strong></span>
       </a>
       <nav class="nav">
