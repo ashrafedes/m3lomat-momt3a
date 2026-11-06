@@ -10,9 +10,21 @@
 </head>
 <body>
   <main style="padding:3rem 0">
-    <div class="container" style="max-width:720px">
+    <div class="container" style="max-width:1100px">
       <h1>إدارة الكتب</h1>
       <p class="page-sub">عدّل أو أضف أو احذف كتبًا → اضغط <strong>حفظ على GitHub</strong> → ثم اطلب من ديفين "rebuild" ليولّد الصفحات ويحدّث sitemap تلقائيًا.</p>
+
+      <div class="admin-layout">
+      <aside class="admin-side">
+        <div class="search-box">
+          <input type="search" id="q" placeholder="ابحث في الكتب…">
+        </div>
+        <div class="chips" style="margin:.8rem 0">
+          <button class="chip active" data-l="ar">عربي</button>
+          <button class="chip" data-l="en">English</button>
+        </div>
+        <ul id="list" class="book-list"></ul>
+      </aside>
 
       <div class="admin-form">
         <div class="row2">
@@ -39,15 +51,7 @@
         </div>
         <p id="status" style="color:var(--accent-2);font-weight:700"></p>
       </div>
-
-      <div class="search-box" style="margin-top:2rem">
-        <input type="search" id="q" placeholder="ابحث في الكتب…">
       </div>
-      <div class="chips" style="margin:.8rem 0">
-        <button class="chip active" data-l="ar">عربي</button>
-        <button class="chip" data-l="en">English</button>
-      </div>
-      <ul id="list" class="book-list"></ul>
     </div>
   </main>
 
@@ -143,13 +147,25 @@
   })();
   </script>
   <style>
+    .admin-layout { display: grid; grid-template-columns: 330px 1fr; gap: 1.4rem; align-items: start; margin-top: 1.4rem; }
+    .admin-side {
+      position: sticky; top: 80px;
+      max-height: calc(100vh - 110px); overflow-y: auto;
+      background: var(--bg-soft); border: 1px solid var(--card-border);
+      border-radius: var(--radius); padding: 1rem;
+    }
+    .admin-side .search-box { padding: .5rem .8rem; }
     .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .admin-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
     .book-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
-    .book-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-      background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: .6rem .9rem; }
+    .book-row { display: flex; justify-content: space-between; align-items: center; gap: .7rem;
+      background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: .55rem .8rem; }
     .book-row small { display: block; color: var(--muted); }
     .row-btns { display: flex; gap: .4rem; flex-shrink: 0; }
+    @media (max-width: 860px) {
+      .admin-layout { grid-template-columns: 1fr; }
+      .admin-side { position: static; max-height: 45vh; }
+    }
   </style>
 </body>
 </html>
