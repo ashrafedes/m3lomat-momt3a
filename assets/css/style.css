@@ -235,6 +235,10 @@ body {
 .library h1, .videos h1 { font-size: 1.8rem; font-weight: 900; }
 .library h2, .videos h2 { font-size: 1.3rem; font-weight: 800; margin: 2.2rem 0 1.1rem; }
 
+/* Category index on static pages */
+.cat-index { margin: -.4rem 0 .5rem; }
+a.chip { text-decoration: none; display: inline-block; }
+
 /* Article pages */
 .article-page article { max-width: 720px; }
 .breadcrumb { color: var(--muted); font-size: .85rem; margin-bottom: 1rem; }

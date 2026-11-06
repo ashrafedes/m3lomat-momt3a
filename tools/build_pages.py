@@ -85,7 +85,15 @@ def build_facts_page():
       <div class="container">
         <h1>مكتبة المعلومات</h1>
         <p class="page-sub">مقالات قصيرة وحقائق منتقاة من قناة معلومات ممتعة — مقسمة حسب الموضوع.</p>
+        <nav class="chips cat-index">
 """)
+    for key in FACT_ORDER:
+        items = by_cat.get(key)
+        if not items:
+            continue
+        ar = cats[key][0]
+        out.append(f'          <a class="chip" href="#{key}">{ar} ({len(items)})</a>\n')
+    out.append("        </nav>\n")
     for key in FACT_ORDER:
         items = by_cat.get(key)
         if not items:
@@ -125,7 +133,15 @@ def build_videos_page():
       <div class="container">
         <h1>كل فيديوهات القناة <span class="count">({total})</span></h1>
         <p class="page-sub">جميع فيديوهات قناة <a href="https://www.youtube.com/@m3lomat-momt3a" rel="noopener">معلومات ممتعة</a> على يوتيوب — مصنفة حسب الموضوع.</p>
+        <nav class="chips cat-index">
 """)
+    for key in VIDEO_ORDER:
+        items = by_cat.get(key)
+        if not items:
+            continue
+        ar = CAT_INFO[key][0]
+        out.append(f'          <a class="chip" href="#{key}">{ar} ({len(items)})</a>\n')
+    out.append("        </nav>\n")
     for key in VIDEO_ORDER:
         items = by_cat.get(key)
         if not items:
@@ -182,7 +198,15 @@ def build_articles_pages(cats):
       <div class="container">
         <h1>مقالات <span class="count">({len(articles)})</span></h1>
         <p class="page-sub">مقالات قصيرة ممتعة بالعربية والإنجليزية — اضغط على أي مقال لقراءته كاملًا.</p>
+        <nav class="chips cat-index">
 """)
+    for key in FACT_ORDER:
+        items = by_cat.get(key)
+        if not items:
+            continue
+        ar = cats[key][0]
+        out.append(f'          <a class="chip" href="#{key}">{ar} ({len(items)})</a>\n')
+    out.append("        </nav>\n")
     for key in FACT_ORDER:
         items = by_cat.get(key)
         if not items:
@@ -214,6 +238,12 @@ def build_articles_pages(cats):
             f'"headline":"{esc(a["ta"])}","image":"{a["img"]}","inLanguage":["ar","en"],'
             f'"author":{{"@type":"Organization","name":"معلومات ممتعة | Fun Facts"}}}}</script>\n'
             '  <link rel="icon"')
+        ar_paras = a.get("pa") or [a["ba"]]
+        en_paras = a.get("pe") or [a["be"]]
+        body_paras = "\n          ".join(
+            f'<p class="article-body" lang="ar">{esc(p)}</p>' for p in ar_paras)
+        body_paras += "\n          " + "\n          ".join(
+            f'<p class="article-body muted" lang="en" dir="ltr">{esc(p)}</p>' for p in en_paras)
         out = [og_head]
         out.append(f"""    <section class="library">
       <div class="container article-page">
@@ -223,8 +253,7 @@ def build_articles_pages(cats):
           <p class="article-meta"><span class="fact-cat" style="background:{color}22;border-color:{color}55;color:{color}">{ar}</span></p>
           <img class="article-hero" src="{a["img"]}" alt="{esc(a["ta"])}" loading="lazy">
           <p class="credit">Photo: <a href="{a["phu"]}" target="_blank" rel="noopener">{esc(a["ph"])}</a> / Pexels</p>
-          <p class="article-body" lang="ar">{esc(a["ba"])}</p>
-          <p class="article-body muted" lang="en" dir="ltr">{esc(a["be"])}</p>
+          {body_paras}
         </article>
 """)
         if related:
