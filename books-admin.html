@@ -116,7 +116,9 @@
       if (!b.dt) { status("اسم الكتاب مطلوب"); return; }
       if (!isEdit && !b.link) { status("رابط التحميل مطلوب للكتب الجديدة"); return; }
       if (!isEdit) list.push(b);
-      editIdx = -1; render(); status("تم — اضغط حفظ على GitHub لنشره", true);
+      editIdx = -1;
+      ["fTitle","fAuthor","fSum","fLink","fImg"].forEach(function (id){document.getElementById(id).value="";});
+      render(); status("تم — اضغط حفظ على GitHub لنشره", true);
     };
     document.getElementById("clearBtn").onclick = function () {
       editIdx = -1;
