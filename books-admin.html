@@ -145,7 +145,7 @@
           })
         });
       }).then(function (r) {
-        if (r.ok) status("✅ تم الحفظ على GitHub — قل لديفين: rebuild", true);
+        if (r.ok) status("✅ تم الحفظ — الصفحات بتتبني تلقائيًا (5–10 دقائق)", true);
         else r.json().then(function (e) { status("خطأ: " + (e.message || r.status)); });
       }).catch(function (e) { status("خطأ: " + e.message); });
     };

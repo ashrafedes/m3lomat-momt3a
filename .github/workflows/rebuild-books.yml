@@ -1,0 +1,27 @@
+name: Rebuild book pages
+
+on:
+  push:
+    paths:
+      - "assets/js/books_data.js"
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Regenerate book pages + sitemap
+        run: python tools/build_books.py
+      - name: Commit regenerated files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Rebuild book pages from books_data.js"
+          file_pattern: "books.html books-en.html book-*.html sitemap.xml tools/covers.json"
