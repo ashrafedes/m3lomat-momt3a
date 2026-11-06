@@ -32,11 +32,11 @@ HEAD = """<!DOCTYPE html>
         <span>معلومات <strong>ممتعة</strong></span>
       </a>
       <nav class="nav">
-        <a href="index.html#random">هل تعلم؟</a>
-        <a href="videos.html">فيديوهات</a>
-        <a href="articles.html">مقالات</a>
-        <a href="books.html">كتب</a>
-        <a href="facts.html">المعلومات</a>
+        <a href="index.html#random"><span class="ar-only">هل تعلم؟</span><span class="en-only">Did You Know?</span></a>
+        <a href="videos.html"><span class="ar-only">فيديوهات</span><span class="en-only">Videos</span></a>
+        <a href="articles.html"><span class="ar-only">مقالات</span><span class="en-only">Articles</span></a>
+        <a href="books.html"><span class="ar-only">كتب</span><span class="en-only">Books</span></a>
+        <a href="facts.html"><span class="ar-only">المعلومات</span><span class="en-only">Facts</span></a>
       </nav>
       <a class="btn yt sm" href="https://www.youtube.com/@m3lomat-momt3a?sub_confirmation=1" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12z"/></svg>
@@ -104,16 +104,16 @@ def build_facts_page():
         page="facts.html")]
     out.append("""    <section class="library">
       <div class="container">
-        <h1>مكتبة المعلومات</h1>
-        <p class="page-sub">مقالات قصيرة وحقائق منتقاة من قناة معلومات ممتعة — مقسمة حسب الموضوع.</p>
+        <h1><span class="ar-only">مكتبة المعلومات</span><span class="en-only">Knowledge Library</span></h1>
+        <p class="page-sub"><span class="ar-only">مقالات قصيرة وحقائق منتقاة من قناة معلومات ممتعة — مقسمة حسب الموضوع.</span><span class="en-only">Short articles and curated facts from the M3lomat Momt3a channel — sorted by topic.</span></p>
         <nav class="chips cat-index">
 """)
     for key in FACT_ORDER:
         items = by_cat.get(key)
         if not items:
             continue
-        ar = cats[key][0]
-        out.append(f'          <a class="chip" href="#{key}">{ar} ({len(items)})</a>\n')
+        ar, en, _ = cats[key]
+        out.append(f'          <a class="chip" href="#{key}"><span class="ar-only">{ar}</span><span class="en-only">{en}</span> ({len(items)})</a>\n')
     out.append("        </nav>\n")
     for key in FACT_ORDER:
         items = by_cat.get(key)
@@ -152,16 +152,16 @@ def build_videos_page():
     total = sum(len(v) for v in by_cat.values())
     out.append(f"""    <section class="videos">
       <div class="container">
-        <h1>كل فيديوهات القناة <span class="count">({total})</span></h1>
-        <p class="page-sub">جميع فيديوهات قناة <a href="https://www.youtube.com/@m3lomat-momt3a" rel="noopener">معلومات ممتعة</a> على يوتيوب — مصنفة حسب الموضوع.</p>
+        <h1><span class="ar-only">كل فيديوهات القناة</span><span class="en-only">All Channel Videos</span> <span class="count">({total})</span></h1>
+        <p class="page-sub"><span class="ar-only">جميع فيديوهات قناة <a href="https://www.youtube.com/@m3lomat-momt3a" rel="noopener">معلومات ممتعة</a> على يوتيوب — مصنفة حسب الموضوع.</span><span class="en-only">All videos from the <a href="https://www.youtube.com/@m3lomat-momt3a" rel="noopener">M3lomat Momt3a</a> YouTube channel — sorted by topic.</span></p>
         <nav class="chips cat-index">
 """)
     for key in VIDEO_ORDER:
         items = by_cat.get(key)
         if not items:
             continue
-        ar = CAT_INFO[key][0]
-        out.append(f'          <a class="chip" href="#{key}">{ar} ({len(items)})</a>\n')
+        ar, en = CAT_INFO[key]
+        out.append(f'          <a class="chip" href="#{key}"><span class="ar-only">{ar}</span><span class="en-only">{en}</span> ({len(items)})</a>\n')
     out.append("        </nav>\n")
     for key in VIDEO_ORDER:
         items = by_cat.get(key)
@@ -227,8 +227,8 @@ def article_card(a, cats):
     ar, en, color = cats[a["c"]]
     return (
         f'          <a class="video-card" href="article-{a["i"]}.html">\n'
-        f'            <div class="thumb"><img loading="lazy" src="{a["thumb"]}" alt="{esc(a["ta"])}"><span class="play" style="font-size:.9rem">{ar}</span></div>\n'
-        f'            <h3 dir="auto">{esc(a["ta"])}</h3>\n'
+        f'            <div class="thumb"><img loading="lazy" src="{a["thumb"]}" alt="{esc(a["ta"])}"><span class="play" style="font-size:.9rem"><span class="ar-only">{ar}</span><span class="en-only">{en}</span></span></div>\n'
+        f'            <h3 dir="auto"><span class="ar-only">{esc(a["ta"])}</span><span class="en-only">{esc(a["te"])}</span></h3>\n'
         f'          </a>\n')
 
 
@@ -246,16 +246,16 @@ def build_articles_pages(cats):
         page="articles.html")]
     out.append(f"""    <section class="videos">
       <div class="container">
-        <h1>مقالات <span class="count">({len(articles)})</span></h1>
-        <p class="page-sub">مقالات قصيرة ممتعة بالعربية والإنجليزية — اضغط على أي مقال لقراءته كاملًا.</p>
+        <h1><span class="ar-only">مقالات</span><span class="en-only">Articles</span> <span class="count">({len(articles)})</span></h1>
+        <p class="page-sub"><span class="ar-only">مقالات قصيرة ممتعة بالعربية والإنجليزية — اضغط على أي مقال لقراءته كاملًا.</span><span class="en-only">Fun short articles in Arabic and English — click any article to read it in full.</span></p>
         <nav class="chips cat-index">
 """)
     for key in FACT_ORDER:
         items = by_cat.get(key)
         if not items:
             continue
-        ar = cats[key][0]
-        out.append(f'          <a class="chip" href="#{key}">{ar} ({len(items)})</a>\n')
+        ar, en, _ = cats[key]
+        out.append(f'          <a class="chip" href="#{key}"><span class="ar-only">{ar}</span><span class="en-only">{en}</span> ({len(items)})</a>\n')
     out.append("        </nav>\n")
     for key in FACT_ORDER:
         items = by_cat.get(key)
@@ -291,16 +291,16 @@ def build_articles_pages(cats):
         ar_paras = a.get("pa") or [a["ba"]]
         en_paras = a.get("pe") or [a["be"]]
         body_paras = "\n          ".join(
-            f'<p class="article-body" lang="ar">{esc(p)}</p>' for p in ar_paras)
+            f'<p class="article-body ar-only" lang="ar">{esc(p)}</p>' for p in ar_paras)
         body_paras += "\n          " + "\n          ".join(
-            f'<p class="article-body muted" lang="en" dir="ltr">{esc(p)}</p>' for p in en_paras)
+            f'<p class="article-body en-only" lang="en" dir="ltr">{esc(p)}</p>' for p in en_paras)
         out = [og_head]
         out.append(f"""    <section class="library">
       <div class="container article-page">
-        <nav class="breadcrumb"><a href="articles.html">مقالات</a> / <a href="articles.html#{a["c"]}" style="color:{color}">{ar}</a></nav>
+        <nav class="breadcrumb"><a href="articles.html"><span class="ar-only">مقالات</span><span class="en-only">Articles</span></a> / <a href="articles.html#{a["c"]}" style="color:{color}"><span class="ar-only">{ar}</span><span class="en-only">{en}</span></a></nav>
         <article>
-          <h1>{esc(a["ta"])}</h1>
-          <p class="article-meta"><span class="fact-cat" style="background:{color}22;border-color:{color}55;color:{color}">{ar}</span></p>
+          <h1><span class="ar-only">{esc(a["ta"])}</span><span class="en-only">{esc(a["te"])}</span></h1>
+          <p class="article-meta"><span class="fact-cat" style="background:{color}22;border-color:{color}55;color:{color}"><span class="ar-only">{ar}</span><span class="en-only">{en}</span></span></p>
           <img class="article-hero" src="{a["img"]}" alt="{esc(a["ta"])}" loading="lazy">
           <p class="credit">Photo: <a href="{a["phu"]}" target="_blank" rel="noopener">{esc(a["ph"])}</a> / Pexels</p>
           {body_paras}
@@ -308,12 +308,12 @@ def build_articles_pages(cats):
 """)
         rv = related_videos(a, vids)
         if rv:
-            out.append('        <h2>شوف كمان الفيديوهات دي</h2>\n        <div class="video-grid">\n')
+            out.append('        <h2><span class="ar-only">شوف كمان الفيديوهات دي</span><span class="en-only">Watch these videos too</span></h2>\n        <div class="video-grid">\n')
             for v in rv:
                 out.append(video_card(v))
             out.append("        </div>\n")
         if related:
-            out.append(f'        <h2>مقالات ذات صلة</h2>\n        <div class="video-grid">\n')
+            out.append('        <h2><span class="ar-only">مقالات ذات صلة</span><span class="en-only">Related articles</span></h2>\n        <div class="video-grid">\n')
             for r in related:
                 out.append(article_card(r, cats))
             out.append("        </div>\n")
