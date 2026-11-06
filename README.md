@@ -9,15 +9,19 @@
 | `index.html` | الصفحة الرئيسية (SEO meta + فيديوهات + مكتبة المعلومات) |
 | `assets/css/style.css` | التنسيقات |
 | `assets/js/facts.js` | بيانات المعلومات والتصنيفات — أضف معلومات جديدة هنا |
-| `assets/js/app.js` | منطق الموقع (بحث، فلترة، نسخ، معلومة عشوائية) |
+| `assets/js/app.js` | منطق الموقع (بحث، فلترة، نسخ، معلومة عشوائية، فيديوهات) |
+| `assets/js/videos.js` | بيانات الفيديوهات — يتولّد تلقائيًا، لا تعدّله يدويًا |
+| `tools/build_videos.py` | سكربت يجلب كل فيديوهات القناة (yt-dlp) ويولّد `videos.js` + `sitemap.xml` |
 | `robots.txt` / `sitemap.xml` | ملفات الـ SEO لـ Google Search Console |
 | `render.yaml` | إعدادات النشر على Render |
 
-## إضافة فيديو جديد
+## تحديث الفيديوهات
 
-في `index.html` داخل `.video-grid` انسخ بطاقة `video-card` وغيّر:
-- رابط الفيديو: `https://www.youtube.com/watch?v=VIDEO_ID`
-- الصورة: `https://i.ytimg.com/vi/VIDEO_ID/hqdefault.jpg`
+```bash
+rm channel.json            # امسح الكاش القديم (أول مرة غير مطلوب)
+python tools/build_videos.py
+git add -A && git commit -m "Update videos" && git push
+```
 
 ## النشر على Render (مجاني)
 

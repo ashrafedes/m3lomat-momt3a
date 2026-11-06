@@ -102,60 +102,27 @@
       </div>
     </section>
 
-    <!-- Latest videos -->
+    <!-- Videos -->
     <section class="videos" id="videos">
       <div class="container">
         <div class="section-head">
-          <h2 data-i18n="videos_head">أحدث فيديوهات القناة</h2>
+          <h2><span data-i18n="videos_head">فيديوهات القناة</span> <span class="count" id="videoCount"></span></h2>
           <a class="btn ghost sm" href="https://www.youtube.com/@m3lomat-momt3a/videos" target="_blank" rel="noopener" data-i18n="all_videos">كل الفيديوهات على يوتيوب</a>
         </div>
-        <div class="video-grid">
 
-          <a class="video-card" href="https://www.youtube.com/watch?v=luMka87efig" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/luMka87efig/hqdefault.jpg" alt="جسمك بيرتعش ليه؟ ٦ أسباب علمية غير البرد والخوف"><span class="play">▶</span></div>
-            <h3 data-ar="جسمك بيرتعش ليه؟ ٦ أسباب علمية غير البرد والخوف" data-en="Why does your body shiver? 6 scientific reasons beyond cold and fear">جسمك بيرتعش ليه؟ ٦ أسباب علمية غير البرد والخوف</h3>
-          </a>
+        <div class="controls">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" id="videoSearch" data-i18n-ph="video_search_ph" placeholder="ابحث في الفيديوهات…">
+          </div>
+          <div class="chips" id="videoChips"></div>
+        </div>
 
-          <a class="video-card" href="https://www.youtube.com/watch?v=8_I9rhwLsw4" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/8_I9rhwLsw4/hqdefault.jpg" alt="طريقة عمل المسقعة المصرية باللحمة المفرومة"><span class="play">▶</span></div>
-            <h3 data-ar="طريقة عمل المسقعة المصرية باللحمة المفرومة — طعم بيتي أصيل وسر الصلصة المتسبكة" data-en="Egyptian moussaka with minced meat — authentic home taste and the secret sauce">طريقة عمل المسقعة المصرية باللحمة المفرومة — طعم بيتي أصيل وسر الصلصة المتسبكة</h3>
-          </a>
+        <div class="video-grid" id="videoGrid"></div>
+        <p class="empty" id="videoEmpty" data-i18n="empty" hidden>لا توجد نتائج مطابقة لبحثك.</p>
 
-          <a class="video-card" href="https://www.youtube.com/watch?v=qGyfIac-dUk" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/qGyfIac-dUk/hqdefault.jpg" alt="مراجعة Ninja CREAMi Deluxe NC501ME"><span class="play">▶</span></div>
-            <h3 data-ar="مراجعة Ninja CREAMi Deluxe — صانعة الآيس كريم والمشروبات المثلجة 10 في 1" data-en="Ninja CREAMi Deluxe review — 10-in-1 ice cream & frozen drinks maker">مراجعة Ninja CREAMi Deluxe — صانعة الآيس كريم والمشروبات المثلجة 10 في 1</h3>
-          </a>
-
-          <a class="video-card" href="https://www.youtube.com/watch?v=r27fhb_U1_4" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/r27fhb_U1_4/hqdefault.jpg" alt="الحبوب الحمرا اللي بتظهر فجأة على جسمك"><span class="play">▶</span></div>
-            <h3 data-ar="الحبوب الحمرا اللي بتظهر فجأة على جسمك — إيه سببها وإزاي تتخلص منها؟" data-en="Red bumps that suddenly appear on your skin — causes and how to get rid of them">الحبوب الحمرا اللي بتظهر فجأة على جسمك — إيه سببها وإزاي تتخلص منها؟</h3>
-          </a>
-
-          <a class="video-card" href="https://www.youtube.com/watch?v=K1Mlm8kXRB0" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/K1Mlm8kXRB0/hqdefault.jpg" alt="خدعة أزايز المية"><span class="play">▶</span></div>
-            <h3 data-ar="خدعة أزايز المية" data-en="The water bottle trick">خدعة أزايز المية</h3>
-          </a>
-
-          <a class="video-card" href="https://www.youtube.com/watch?v=rxPAmiGb-Gs" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/rxPAmiGb-Gs/hqdefault.jpg" alt="ليه الشطة ممنوعة"><span class="play">▶</span></div>
-            <h3 data-ar="ليه الشطة ممنوعة" data-en="Why chili is off-limits">ليه الشطة ممنوعة</h3>
-          </a>
-
-          <a class="video-card" href="https://www.youtube.com/watch?v=N_pTdXjabxA" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/N_pTdXjabxA/hqdefault.jpg" alt="نصائح لتقليل المخاطر"><span class="play">▶</span></div>
-            <h3 data-ar="نصائح لتقليل المخاطر" data-en="Tips to reduce risks">نصائح لتقليل المخاطر</h3>
-          </a>
-
-          <a class="video-card" href="https://www.youtube.com/watch?v=n1P8mvo681w" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/n1P8mvo681w/hqdefault.jpg" alt="نوّع استثماراتك وتعلّم"><span class="play">▶</span></div>
-            <h3 data-ar="نوّع استثماراتك وتعلّم" data-en="Diversify your investments and keep learning">نوّع استثماراتك وتعلّم</h3>
-          </a>
-
-          <a class="video-card" href="https://www.youtube.com/watch?v=dpsko9BpvcA" target="_blank" rel="noopener">
-            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/dpsko9BpvcA/hqdefault.jpg" alt="مفاتيح الحرية المالية"><span class="play">▶</span></div>
-            <h3 data-ar="مفاتيح الحرية المالية" data-en="Keys to financial freedom">مفاتيح الحرية المالية</h3>
-          </a>
-
+        <div class="load-more" id="loadMoreWrap">
+          <button class="btn ghost" id="loadMoreBtn" data-i18n="load_more">عرض المزيد</button>
         </div>
 
         <div class="subscribe-banner">
@@ -229,6 +196,7 @@
   <div class="toast" id="toast">تم النسخ</div>
 
   <script src="assets/js/facts.js"></script>
+  <script src="assets/js/videos.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

@@ -17,8 +17,11 @@
       random_hint: "اضغط الزر لاكتشاف معلومة جديدة",
       new_fact: "معلومة جديدة",
       copy: "نسخ",
-      videos_head: "أحدث فيديوهات القناة",
+      videos_head: "فيديوهات القناة",
       all_videos: "كل الفيديوهات على يوتيوب",
+      video_search_ph: "ابحث في الفيديوهات…",
+      load_more: "عرض المزيد",
+      videos_n: "فيديو",
       subscribe_banner: "شاهد المزيد من المعلومات الممتعة على قناتنا",
       subscribe_cta: "اشترك في القناة",
       library_head: "مكتبة المعلومات",
@@ -46,8 +49,11 @@
       random_hint: "Press the button to discover a new fact",
       new_fact: "New fact",
       copy: "Copy",
-      videos_head: "Latest channel videos",
+      videos_head: "Channel videos",
       all_videos: "All videos on YouTube",
+      video_search_ph: "Search videos…",
+      load_more: "Load more",
+      videos_n: "videos",
       subscribe_banner: "Watch more fun facts on our channel",
       subscribe_cta: "Subscribe to the channel",
       library_head: "Facts Library",
@@ -257,6 +263,105 @@
     paintRandom();
   }
 
+  // ---------- videos ----------
+
+  var PAGE = 24;
+  var videoChipsEl = document.getElementById("videoChips");
+  var videoGridEl = document.getElementById("videoGrid");
+  var videoSearchEl = document.getElementById("videoSearch");
+  var videoCountEl = document.getElementById("videoCount");
+  var videoEmptyEl = document.getElementById("videoEmpty");
+  var loadMoreWrap = document.getElementById("loadMoreWrap");
+  var loadMoreBtn = document.getElementById("loadMoreBtn");
+
+  var videoCat = "all";
+  var renderedCount = 0;
+
+  function vcatName(key) {
+    return lang === "en" ? VIDEO_CATS[key].en : VIDEO_CATS[key].name;
+  }
+
+  function buildVideoChips() {
+    videoChipsEl.innerHTML = "";
+    var allBtn = document.createElement("button");
+    allBtn.className = "chip" + (videoCat === "all" ? " active" : "");
+    allBtn.dataset.cat = "all";
+    allBtn.textContent = t("all");
+    videoChipsEl.appendChild(allBtn);
+
+    Object.keys(VIDEO_CATS).forEach(function (key) {
+      var btn = document.createElement("button");
+      btn.className = "chip" + (videoCat === key ? " active" : "");
+      btn.dataset.cat = key;
+      btn.textContent = vcatName(key);
+      videoChipsEl.appendChild(btn);
+    });
+  }
+
+  function filteredVideos() {
+    var q = videoSearchEl.value.trim().toLowerCase();
+    return VIDEOS.filter(function (v) {
+      var matchCat = videoCat === "all" || v[1] === videoCat;
+      var matchSearch = q === "" || v[2].toLowerCase().indexOf(q) !== -1;
+      return matchCat && matchSearch;
+    });
+  }
+
+  function embedVideo(card, id) {
+    if (card.classList.contains("playing")) return;
+    card.classList.add("playing");
+    var thumb = card.querySelector(".thumb");
+    thumb.innerHTML = "";
+    var iframe = document.createElement("iframe");
+    iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    thumb.appendChild(iframe);
+  }
+
+  function makeVideoCard(v) {
+    var card = document.createElement("div");
+    card.className = "video-card";
+
+    var thumb = document.createElement("div");
+    thumb.className = "thumb";
+    var img = document.createElement("img");
+    img.loading = "lazy";
+    img.src = "https://i.ytimg.com/vi/" + v[0] + "/mqdefault.jpg";
+    img.alt = v[2];
+    var play = document.createElement("span");
+    play.className = "play";
+    play.textContent = "▶";
+    thumb.appendChild(img);
+    thumb.appendChild(play);
+
+    var h3 = document.createElement("h3");
+    h3.textContent = v[2];
+    h3.dir = "auto";
+
+    card.appendChild(thumb);
+    card.appendChild(h3);
+    card.addEventListener("click", function () { embedVideo(card, v[0]); });
+    return card;
+  }
+
+  function renderVideos(reset) {
+    var list = filteredVideos();
+    if (reset) {
+      videoGridEl.innerHTML = "";
+      renderedCount = 0;
+    }
+    var end = Math.min(renderedCount + PAGE, list.length);
+    for (var i = renderedCount; i < end; i++) {
+      videoGridEl.appendChild(makeVideoCard(list[i]));
+    }
+    renderedCount = end;
+
+    videoCountEl.textContent = "(" + list.length + " " + t("videos_n") + ")";
+    videoEmptyEl.hidden = list.length !== 0;
+    loadMoreWrap.style.display = renderedCount < list.length ? "" : "none";
+  }
+
   // ---------- events ----------
 
   newFactBtn.addEventListener("click", showRandomFact);
@@ -276,12 +381,32 @@
     renderGrid();
   });
 
+  videoChipsEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".chip");
+    if (!btn) return;
+    videoCat = btn.dataset.cat;
+    videoChipsEl.querySelectorAll(".chip").forEach(function (c) {
+      c.classList.toggle("active", c === btn);
+    });
+    renderVideos(true);
+  });
+
+  loadMoreBtn.addEventListener("click", function () { renderVideos(false); });
+
+  var vDebounce;
+  videoSearchEl.addEventListener("input", function () {
+    clearTimeout(vDebounce);
+    vDebounce = setTimeout(function () { renderVideos(true); }, 150);
+  });
+
   langBtn.addEventListener("click", function () {
     lang = lang === "ar" ? "en" : "ar";
     localStorage.setItem("lang", lang);
     applyI18n();
     buildChips();
+    buildVideoChips();
     renderGrid();
+    renderVideos(true);
     paintRandom();
   });
 
@@ -295,6 +420,8 @@
 
   applyI18n();
   buildChips();
+  buildVideoChips();
   renderGrid();
+  renderVideos(true);
   showRandomFact();
 })();
