@@ -21,8 +21,16 @@ jobs:
           python-version: "3.11"
       - name: Regenerate book pages + sitemap
         run: python tools/build_books.py
-      - name: Commit regenerated files
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Rebuild book pages from books_data.js"
-          file_pattern: "books.html books-en.html book-*.html sitemap.xml tools/covers.json"
+      - name: Commit regenerated files (rebase-retry on racing saves)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add books.html books-en.html book-*.html sitemap.xml tools/covers.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -m "Rebuild book pages from books_data.js"
+          for i in 1 2 3; do
+            git push && exit 0
+            git pull --rebase && git push && exit 0
+            sleep 5
+          done
+          echo "push failed after retries"; exit 1
