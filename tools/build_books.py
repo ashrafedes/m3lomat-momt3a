@@ -331,7 +331,9 @@ def build(books, sections, lang, page, title, desc, sub, home, v, a, b, f, dl, f
     for sec in sections:
         out.append(f'        <h2 id="{sec}">{sections[sec]} <span class="count">({len(groups.get(sec,[]))})</span></h2>\n        <div class="book-grid">\n')
         for bk in groups[sec]:
-            if bk["kind"] == "pg":
+            if bk.get("link"):
+                bk["free"] = bk.get("free", False)
+            elif bk["kind"] == "pg":
                 bk["link"], bk["free"] = pg_link(bk["qt"], bk["au"])
             elif bk["kind"] == "direct":
                 bk["free"] = True
