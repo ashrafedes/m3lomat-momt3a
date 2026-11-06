@@ -308,11 +308,11 @@ def build(books, sections, lang, page, title, desc, sub, home, v, a, b, f, dl, f
     if os.path.exists(CACHE):
         cache = json.load(open(CACHE, encoding="utf-8"))
     all_books = []
-    for b in books:
-        if isinstance(b, dict):
-            all_books.append(dict(b))
+    for _b in books:
+        if isinstance(_b, dict):
+            all_books.append(dict(_b))
         else:
-            s, q, d, u, m, k = b
+            s, q, d, u, m, k = _b
             all_books.append({"sec": s, "qt": q, "dt": d, "au": u, "sm": m, "kind": k})
     groups = {}
     for bk in all_books:
