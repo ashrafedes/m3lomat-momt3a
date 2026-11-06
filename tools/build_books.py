@@ -194,10 +194,11 @@ HEAD = """<!DOCTYPE html>
     <div class="container header-inner">
       <a href="index.html" class="logo"><span class="logo-mark">؟</span><span>معلومات <strong>ممتعة</strong></span></a>
       <nav class="nav">
-        <a href="index.html">{home}</a>
+        <a href="index.html#random">{home}</a>
         <a href="videos.html">{v}</a>
         <a href="articles.html">{a}</a>
         <a href="books.html">{b}</a>
+        <a href="facts.html">{f}</a>
       </nav>
       <a class="btn yt sm" href="https://www.youtube.com/@m3lomat-momt3a?sub_confirmation=1" target="_blank" rel="noopener">▶ {sub}</a>
     </div>
@@ -221,14 +222,44 @@ FOOT = """      </div>
 def esc(s):
     return (s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace('"',"&quot;"))
 
-def card(title, author, summary, link, img, link_label, free):
+def load_extra():
+    """Extra books added via books-admin.html -> assets/js/books_extra.js"""
+    p = os.path.join(ROOT, "assets/js/books_extra.js")
+    if not os.path.exists(p):
+        return []
+    m = re.search(r"EXTRA_BOOKS=(\[.*\])", open(p, encoding="utf-8").read(), re.S)
+    return json.loads(m.group(1)) if m else []
+
+
+def book_page_filename(lang, idx):
+    return f"book-{lang}-{idx}.html"
+
+
+def update_sitemap(n_ar, n_en):
+    """Replace book-N entries in sitemap.xml with the current set."""
+    p = os.path.join(ROOT, "sitemap.xml")
+    sm = open(p, encoding="utf-8").read()
+    sm = re.sub(r"\s*<url>\s*<loc>https://m3lomat-momt3a\.org/book-(?:ar|en)-\d+\.html</loc>.*?</url>", "", sm, flags=re.S)
+    add = []
+    for lang, n in (("ar", n_ar), ("en", n_en)):
+        for i in range(n):
+            add += ["  <url>",
+                    f"    <loc>https://m3lomat-momt3a.org/{book_page_filename(lang, i)}</loc>",
+                    "    <changefreq>monthly</changefreq>",
+                    "    <priority>0.6</priority>",
+                    "  </url>"]
+    open(p, "w", encoding="utf-8").write(sm.replace("</urlset>", "\n".join(add) + "\n</urlset>"))
+
+
+def card(title, author, summary, link, img, link_label, free, page=None):
     img_html = f'<img loading="lazy" src="{img}" alt="{esc(title)}">' if img else \
                '<div class="thumb" style="display:grid;place-items:center;font-size:2rem">📖</div>'
     badge = ' <span class="chip" style="pointer-events:none;font-size:.7rem;padding:.1rem .5rem">FREE</span>' if free else ""
+    title_html = f'<a href="{page}">{esc(title)}</a>' if page else esc(title)
     return f'''          <div class="video-card">
-            <div class="thumb book-thumb">{img_html}</div>
+            <a class="thumb book-thumb" href="{page or link}">{img_html}</a>
             <div class="book-info">
-              <h3 dir="auto">{esc(title)}</h3>
+              <h3 dir="auto">{title_html}</h3>
               <p class="book-author" dir="auto">{esc(author)}</p>
               <p class="book-summary" dir="auto">{esc(summary)}</p>
               <a class="btn primary sm book-dl" href="{link}" target="_blank" rel="noopener">{link_label}{badge}</a>
@@ -236,44 +267,84 @@ def card(title, author, summary, link, img, link_label, free):
           </div>
 '''
 
-def build(books, sections, lang, page, title, desc, sub, home, v, a, b, dl, free_dl, dir_):
+def book_page(bk, lang, idx, sections, back_page, dl, free):
+    link, img = bk["link"], bk["img"]
+    img_html = f'<img class="article-hero" style="max-width:220px" src="{img}" alt="{esc(bk["dt"])}">' if img else ""
+    body = f"""        <nav class="breadcrumb"><a href="{back_page}">{'الكتب' if lang=='ar' else 'Books'}</a> / <a href="{back_page}#{bk['sec']}">{esc(sections[bk['sec']])}</a></nav>
+        <article>
+          <h1>{esc(bk['dt'])}</h1>
+          <p class="book-author">{esc(bk['au'])}</p>
+          {img_html}
+          <p class="article-body">{esc(bk['sm'])}</p>
+          <p><a class="btn primary" href="{link}" target="_blank" rel="noopener">{free if bk["free"] else dl}</a></p>
+        </article>
+        <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Book","name":"{esc(bk['dt'])}","author":"{esc(bk['au'])}","image":"{img}","inLanguage":"{lang}"}}</script>
+"""
+    fname = book_page_filename(lang, idx)
+    head = HEAD.format(lang=lang, dir=("rtl" if lang == "ar" else "ltr"),
+                       title=f'{bk["dt"]} | معلومات ممتعة', desc=bk["sm"][:150], page=fname,
+                       sub="اشترك", home="هل تعلم؟", v="فيديوهات", a="مقالات", b="كتب", f="المعلومات") \
+        if lang == "ar" else HEAD.format(
+        lang=lang, dir="ltr", title=f'{bk["dt"]} | M3lomat Momt3a',
+        desc=bk["sm"][:150], page=fname, sub="Subscribe", home="Did You Know?",
+        v="Videos", a="Articles", b="Books", f="Facts")
+    open(os.path.join(ROOT, fname), "w", encoding="utf-8").write(head + body + FOOT)
+
+
+def build(books, sections, lang, page, title, desc, sub, home, v, a, b, f, dl, free_dl, dir_):
     cache = {}
     if os.path.exists(CACHE):
         cache = json.load(open(CACHE, encoding="utf-8"))
+    all_books = [{"sec": s, "qt": q, "dt": d, "au": u, "sm": m, "kind": k}
+                 for s, q, d, u, m, k in books]
+    for x in load_extra():
+        if x.get("lang") == lang:
+            all_books.append({"sec": x["sec"], "qt": "", "dt": x["dt"], "au": x.get("au", ""),
+                              "sm": x.get("sm", ""), "kind": "direct",
+                              "link": x.get("link", ""), "img": x.get("img", "")})
     groups = {}
-    for sec, qt, dt, au, sm, kind in books:
-        groups.setdefault(sec, []).append((qt, dt, au, sm, kind))
+    for bk in all_books:
+        groups.setdefault(bk["sec"], []).append(bk)
     out = [HEAD.format(lang=lang, dir=dir_, title=title, desc=desc, page=page,
-                       sub=sub, home=home, v=v, a=a, b=b)]
-    out.append(f'        <h1>{esc(title.split("|")[0].strip())} <span class="count">({len(books)})</span></h1>\n')
+                       sub=sub, home=home, v=v, a=a, b=b, f=f)]
+    out.append(f'        <h1>{esc(title.split("|")[0].strip())} <span class="count">({len(all_books)})</span></h1>\n')
     out.append(f'        <p class="page-sub">{desc}</p>\n')
-    # index
     out.append('        <nav class="chips cat-index">\n')
     for sec in sections:
-        n = len(groups.get(sec, []))
-        out.append(f'          <a class="chip" href="#{sec}">{sections[sec]} ({n})</a>\n')
+        out.append(f'          <a class="chip" href="#{sec}">{sections[sec]} ({len(groups.get(sec,[]))})</a>\n')
     out.append('        </nav>\n')
+    idx = 0
     for sec in sections:
         out.append(f'        <h2 id="{sec}">{sections[sec]} <span class="count">({len(groups.get(sec,[]))})</span></h2>\n        <div class="book-grid">\n')
-        for qt, dt, au, sm, kind in groups[sec]:
-            if kind == "pg":
-                link, free = pg_link(qt, au)
+        for bk in groups[sec]:
+            if bk["kind"] == "pg":
+                bk["link"], bk["free"] = pg_link(bk["qt"], bk["au"])
+            elif bk["kind"] == "direct":
+                bk["free"] = True
             else:
-                link, free = gb_link(qt + " " + au, "") , False
-            img = cover_for(qt, au, cache)
-            out.append(card(dt, au, sm, link, img, free_dl if free else dl, free))
+                bk["link"], bk["free"] = gb_link(bk["qt"] + " " + bk["au"], ""), False
+            if "img" not in bk:
+                bk["img"] = cover_for(bk["qt"], bk["au"], cache)
+            fname = book_page_filename(lang, idx)
+            book_page(bk, lang, idx, sections, page, dl, free_dl)
+            out.append(card(bk["dt"], bk["au"], bk["sm"], bk["link"], bk["img"],
+                            free_dl if bk["free"] else dl, bk["free"], fname))
+            idx += 1
         out.append('        </div>\n')
     out.append(FOOT)
     open(os.path.join(ROOT, page), "w", encoding="utf-8").write("".join(out))
     json.dump(cache, open(CACHE, "w", encoding="utf-8"), ensure_ascii=False)
-    print(page, len(books), "books")
+    print(page, len(all_books), "books")
+    return len(all_books)
 
 if __name__ == "__main__":
-    build(AR_BOOKS, AR_SECTIONS, "ar", "books.html",
+    n_ar = build(AR_BOOKS, AR_SECTIONS, "ar", "books.html",
           "أفضل 100 كتاب — مكتبة معلومات ممتعة",
           "أفضل الكتب العربية والمترجمة — روايات وتراث وتنمية، مع ملخص قصير ورابط تحميل أو معاينة قانونية لكل كتاب.",
-          "اشترك", "الرئيسية", "فيديوهات", "مقالات", "كتب", "معاينة / تحميل", "تحميل مجاني", "rtl")
-    build(EN_BOOKS, EN_SECTIONS, "en", "books-en.html",
+          "اشترك", "هل تعلم؟", "فيديوهات", "مقالات", "كتب", "المعلومات", "معاينة / تحميل", "تحميل مجاني", "rtl")
+    n_en = build(EN_BOOKS, EN_SECTIONS, "en", "books-en.html",
           "Top 100 Books | M3lomat Momt3a",
           "The top 100 must-read books — classics with free legal downloads (Project Gutenberg) and modern bestsellers with preview & borrow links.",
-          "Subscribe", "Home", "Videos", "Articles", "Books", "Preview / Download", "Free download", "ltr")
+          "Subscribe", "Did You Know?", "Videos", "Articles", "Books", "Facts", "Preview / Download", "Free download", "ltr")
+    update_sitemap(n_ar, n_en)
+    print("sitemap updated:", n_ar + n_en, "book pages")

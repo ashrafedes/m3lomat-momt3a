@@ -32,11 +32,11 @@ HEAD = """<!DOCTYPE html>
         <span>معلومات <strong>ممتعة</strong></span>
       </a>
       <nav class="nav">
-        <a href="index.html">الرئيسية</a>
+        <a href="index.html#random">هل تعلم؟</a>
         <a href="videos.html">فيديوهات</a>
         <a href="articles.html">مقالات</a>
-        <a href="facts.html">المعلومات</a>
         <a href="books.html">كتب</a>
+        <a href="facts.html">المعلومات</a>
       </nav>
       <a class="btn yt sm" href="https://www.youtube.com/@m3lomat-momt3a?sub_confirmation=1" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12z"/></svg>

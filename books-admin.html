@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إضافة كتاب — Admin</title>
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <main style="padding:3rem 0">
+    <div class="container" style="max-width:640px">
+      <h1>إضافة كتاب جديد</h1>
+      <p class="page-sub">املأ الحقول → اضغط "أضف" → نزّل الملف وضعه مكان <code>assets/js/books_extra.js</code> → شغّل <code>python tools/build_books.py</code>. كل كتاب جديد يدخل sitemap تلقائيًا.</p>
+      <div class="admin-form">
+        <label>اللغة / Language
+          <select id="fLang">
+            <option value="ar">عربي (books.html)</option>
+            <option value="en">English (books-en.html)</option>
+          </select></label>
+        <label>القسم / Section
+          <select id="fSec">
+            <option value="lit">روايات وأدب</option><option value="heritage">تراث وكلاسيكيات</option>
+            <option value="self">تنمية وفكر</option><option value="classic">Classics</option>
+            <option value="modern">Modern</option>
+          </select></label>
+        <label>اسم الكتاب / Title <input id="fTitle" required></label>
+        <label>المؤلف / Author <input id="fAuthor"></label>
+        <label>ملخص / Description <textarea id="fSum" rows="3"></textarea></label>
+        <label>رابط التحميل المباشر / Download URL <input id="fLink" dir="ltr" placeholder="https://…"></label>
+        <label>رابط الصورة / Image URL <input id="fImg" dir="ltr" placeholder="https://… (اتركه فارغًا للبحث التلقائي)"></label>
+        <button class="btn primary" id="addBtn">أضف +</button>
+        <button class="btn yt" id="dlBtn">⬇ تنزيل books_extra.js</button>
+      </div>
+      <h2 style="margin-top:2rem">الكتب المضافة (<span id="cnt"></span>)</h2>
+      <ul id="list" style="color:var(--muted)"></ul>
+    </div>
+  </main>
+  <script src="assets/js/books_extra.js"></script>
+  <script>
+    var list = EXTRA_BOOKS.slice();
+    function render() {
+      document.getElementById("cnt").textContent = list.length;
+      document.getElementById("list").innerHTML = list.map(function (b) {
+        return "<li>" + (b.lang === "ar" ? "[ع]" : "[EN]") + " " + b.dt + " — " + (b.au || "") + "</li>";
+      }).join("");
+    }
+    document.getElementById("addBtn").onclick = function () {
+      var b = {
+        lang: fLang.value, sec: fSec.value, dt: fTitle.value.trim(),
+        au: fAuthor.value.trim(), sm: fSum.value.trim(),
+        link: fLink.value.trim(), img: fImg.value.trim()
+      };
+      if (!b.dt || !b.link) { alert("العنوان ورابط التحميل مطلوبان"); return; }
+      list.push(b); render();
+      fTitle.value = fAuthor.value = fSum.value = fLink.value = fImg.value = "";
+    };
+    document.getElementById("dlBtn").onclick = function () {
+      var blob = new Blob(["// Books added via books-admin.html\nconst EXTRA_BOOKS = " +
+        JSON.stringify(list, null, 2) + ";\n"], { type: "text/javascript" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob); a.download = "books_extra.js"; a.click();
+    };
+    render();
+  </script>
+</body>
+</html>
