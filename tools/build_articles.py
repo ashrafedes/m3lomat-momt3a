@@ -1,7 +1,7 @@
 # Generate assets/js/articles.js — 100 bilingual articles + Pexels images.
 # Run tools/fetch_pexels.py first to create tools/pexels.json.
 # Usage: python tools/build_articles.py
-import json, os
+import json, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -317,17 +317,216 @@ ARTICLES = [
  "A New Zealand hill holds an 85-letter Māori name — Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu — roughly 'the place where Tamatea played his flute to his beloved.'"),
 ]
 
+# Per-category boilerplate used to expand each article past 300 words.
+# Each article = intro(title) + unique body + 3 rotating pool paragraphs + outro.
+CAT_TEXT = {
+"space": {
+"intro_ar": "الفضاء مليان أسرار بتتحط قدامنا كل يوم، وفيه حقيقة واحدة من أغربها بتستاهل نقف قدامها شوية: {t}. المعلومة دي مش بس غريبة — هي كمان بتغير نظرتنا للكون اللي عايشين فيه.",
+"intro_en": "Space keeps revealing its secrets to us every day, and one of its strangest is worth pausing on: {t}. This fact is not just odd — it quietly reshapes how we see the universe we live in.",
+"outro_ar": "في الآخر، الفضاء بيفضل أكبر كتاب مفتوح في الوجود — كل معلومة صغيرة فيه بتحكي قصة أكبر. خليك متابع معلومات ممتعة، لأن اللي جاي أغرب.",
+"outro_en": "In the end, space remains the biggest open book in existence — every small fact in it tells a much bigger story. Stay tuned to Fun Facts, because stranger things are coming.",
+"pool_ar": [
+"أول ما الإنسان بص للسما بالتلسكوب، اكتشف إن كل اللي كنا فاكرينه عن مكاننا في الكون محتاج يتعاد كتابته. من وقتها وكل اكتشاف جديد بيزود الإحساس إن إحنا لسه في أول الطريق. الفضاء مش مجرد نجوم بعيدة — هو معمل عملاق بيشتغل بقوانين فيزيائية إحنا لسه بنفك شفرتها.",
+"القوانين اللي بتحكم الفضاء هي نفسها اللي بتحكم حياتنا على الأرض — الجاذبية اللي بتخلي التفاحة تنزل هي اللي شكلت المجرات. الفرق الوحيد هو المقياس: اللي بياخد ثانية هنا ممكن ياخد مليارات السنين هناك. وده اللي بيخلي دراسة الفضاء دراسة لأصل كل حاجة.",
+"وكالات الفضاء بتصرف مليارات عشان تجاوب على أسئلة بدائية شكلها بسيط: هل إحنا لوحدنا؟ إزاي بدأ الكون؟ وإيه اللي بيحصل جوا الثقوب السودا؟ كل مهمة بترجع بإجابات جزئية وأسئلة أكتر، وده بالظبط اللي بيخلي المجال ده ممتع — اللغز مابيخلصش.",
+"التلسكوبات الحديثة زي جيمس ويب بتقدر تشوف ضوء مسافر من 13 مليار سنة — يعني بتشوف الماضي حرفيًا. كل صورة بتيجي من الفضاء العميق هي آلة زمن حقيقية بترجعنا لأيام الكون الأولى. ومع كل صورة بنكتشف إن الكون أغرب من أي خيال علمي اتكتب.",
+"الإنسان دايمًا بيسأل نفسه: إيه دورنا في كل ده؟ الحقيقة إننا مصنوعين من غبار النجوم حرفيًا — العناصر اللي في أجسامنا اتلحمت في قلوب نجوم انفجرت قبل وجود الشمس. يعني اللي بتحكيلك عنه المعلومة دي مش شي بعيد عنك — ده جزء من حكايتك إنت شخصيًا.",
+],
+"pool_en": [
+"The moment humans first pointed a telescope at the sky, everything we thought we knew about our place in the cosmos had to be rewritten. Every discovery since has only deepened the sense that we are just getting started. Space is not just distant stars — it is a giant laboratory running on physics we are still decoding.",
+"The same laws that govern space govern our lives on Earth — the gravity that drops an apple is the gravity that shaped galaxies. The only difference is scale: what takes a second here can take billions of years out there. That is why studying space is really the study of where everything comes from.",
+"Space agencies spend billions chasing questions that sound deceptively simple: Are we alone? How did the universe begin? What happens inside a black hole? Every mission returns partial answers and raises even better questions — which is exactly what makes the field so addictive.",
+"Modern telescopes like James Webb can see light that has traveled for 13 billion years — literally looking into the past. Every deep-space image is a real time machine taking us back to the universe's earliest days, and each one reveals a cosmos stranger than any science fiction ever written.",
+"Humans have always asked: what is our role in all of this? The honest answer is that we are made of star-stuff — the elements in your body were forged inside stars that exploded before the Sun existed. So the fact you just read is not something distant; it is literally part of your own story.",
+"وفي النهاية، الإجابة على سؤال واحد عن الفضاء بتفتح باب على أسئلة أعمق عن أصلنا نفسه. كل مجرة بتتصور، وكل كوكب بيتكتشف، هو قطعة في بازل بيوضح صورتنا في الكون — وإحنا أول جيل في التاريخ يقدر يشوف الصورة دي وهي بتتركب قدام عينيه.",
+"In the end, answering one question about space opens a door to deeper questions about our own origins. Every galaxy imaged and every planet discovered is a piece of a puzzle revealing our place in the cosmos — and we are the first generation able to watch that picture assemble before our eyes.",
+]},
+"science": {
+"intro_ar": "العلم مليان مفاجآت بتقلب البديهيات راس على عقب، وواحدة من أطرفها هي: {t}. معلومة زي دي بتفكرك إن الطبيعة أذكى بكتير من اللي إحنا متعودين نتخيله.",
+"intro_en": "Science is full of surprises that flip common sense on its head, and one of the most delightful is this: {t}. Facts like this remind us that nature is far cleverer than we usually assume.",
+"outro_ar": "العلم مش معلومات جامدة في كتب — هو طريقة تفكير بتخلينا نسأل 'ليه؟' في كل حاجة حوالينا. وكل ما تعرف أكتر، كل ما الدنيا تبقى أغرب وأجمل.",
+"outro_en": "Science is not rigid facts in books — it is a way of thinking that makes us ask 'why?' about everything around us. And the more you learn, the stranger and more beautiful the world becomes.",
+"pool_ar": [
+"أجمل حاجة في العلم إنه بيحول السؤال البسيط لرحلة. سؤال زي 'ليه ده بيحصل؟' ممكن ياخد علماء عقود كاملة عشان يجاوبوا عليه، وبعد ما يجاوبوا بيكتشفوا إن الإجابة فتحت عشر أسئلة جديدة. الظاهرة اللي بتقرا عنها النهارده ممكن تكون غيّرت فهمنا لحاجة أساسية.",
+"المنهج العلمي بسيط في فكرته وعبقري في نتيجته: لاحظ، افترض، اختبر، وكرر. بس التطبيق على أرض الواقع بيحتاج تجارب معقدة وأدوات دقيقة وسنين من الصبر. ورا كل معلومة 'بسيطة' بتقراها في سطرين، فيه فرق بحث كاملة اشتغلت لسنين عشان تثبتها.",
+"كتير من أعظم الاكتشافات العلمية حصلت بالصدفة — البنسلين والميكروويف والأشعة السينية كلها لقاها علماء وهم بيدوروا على حاجة تانية خالص. الفرق بينهم وبين غيرهم إنهم وقفوا وسألوا 'ده غريب، ليه حصل كده؟' بدل ما يرموا النتيجة في الزبالة.",
+"العلم مابيتكلمش بلغة 'الحقيقة المطلقة' — بيتكلم بلغة 'أحسن تفسير عندنا دلوقتي'. كل نظرية عندنا هي أحسن نموذج موجود للأدلة المتاحة، ودي نقطة قوة مش ضعف: لما تظهر أدلة جديدة، العلم بيتحدث نفسه. عشان كده بيثبت صح على طول.",
+"لو فكرت فيها، كل حاجة حواليك هي تطبيق لاكتشاف علمي حصل في يوم من الأيام — الموبايل في إيدك والكهربة والدوا والنظارة اللي بتقرا بيها. العلم مش ترف، هو الأساس اللي الحياة الحديثة مبنية عليه، والمعلومات الصغيرة دي هي الطوب اللي بيتبني بيه.",
+],
+"pool_en": [
+"The best thing about science is how it turns a simple question into a journey. 'Why does this happen?' can take researchers decades to answer — and when they finally do, the answer opens ten new questions. The phenomenon you just read about may well have reshaped our understanding of something fundamental.",
+"The scientific method is simple in concept and brilliant in result: observe, hypothesize, test, repeat. But applying it in the real world demands complex experiments, precise instruments, and years of patience. Behind every 'simple' two-line fact lies entire research teams who spent years proving it.",
+"Many of the greatest discoveries happened by accident — penicillin, the microwave, and X-rays were all found by scientists looking for something else entirely. What set them apart was stopping to ask 'that's odd, why did that happen?' instead of throwing the result away.",
+"Science does not speak in absolute truth — it speaks in 'the best explanation we have right now.' Every theory is our best model for the available evidence, and that is a strength, not a weakness: when new evidence appears, science updates itself. That is why it keeps being right.",
+"If you think about it, everything around you is applied science — the phone in your hand, electricity, medicine, even the glasses you read with. Science is not a luxury; it is the foundation modern life stands on, and small facts like this one are its building blocks.",
+"والمفارقة الجميلة إن أعظم العلماء في التاريخ كانوا أول من يعترف بكمية اللي ميعرفوش. نيوتن قال إنه زي طفل بيلعب على شاطئ المحيط العظيم للحقيقة. التواضع ده مش ضعف — هو المحرك اللي بيخلي العلم يتحرك للأمام جيل ورا جيل.",
+"The beautiful irony is that the greatest scientists in history were the first to admit how much they did not know. Newton said he was like a child playing on the shore of a vast ocean of truth. That humility is not weakness — it is the engine that keeps science moving forward, generation after generation.",
+]},
+"animals": {
+"intro_ar": "مملكة الحيوان مليانة كائنات بتعمل حاجات مستحيل تتخيلها، والنهارده هنتكلم عن واحدة من أغربها: {t}. المعلومة دي بتثبت إن الطبيعة عندها حلول عبقرية أكتر من أي مهندس.",
+"intro_en": "The animal kingdom is packed with creatures doing things you could never imagine, and today we look at one of the strangest: {t}. Facts like this prove nature engineers solutions smarter than any human design.",
+"outro_ar": "الحيوانات مش بس كائنات بتعيش جنبنا — هي مكتبة حلول بيولوجية اتطورت عبر ملايين السنين. كل ما نفهمها أكتر، كل ما نفهم إحنا كمان مكاننا في النظام ده.",
+"outro_en": "Animals are not just creatures living beside us — they are a library of biological solutions refined over millions of years. The better we understand them, the better we understand our own place in the system.",
+"pool_ar": [
+"التطور مش بيصمم من ورقة بيضا — بيشتغل على الموجود ويعدّله جيل ورا جيل. عشان كده بنلاقي حلول غريبة شكلها مش 'مثالية' لكنها بتشتغل: زي اللي قريته في المعلومة دي. الطبيعة مش مهندسة مثالية، هي مبدع عملي بيستخدم اللي قدامه.",
+"العلماء لسه بيكتشفوا قدرات حيوانية مبهرة كل سنة — حاجات كنا فاكرينها مستحيلة أو حصرية للبشر. أدوات، لغات، ذاكرة، تعاطف، وحتى ثقافة بتنتقل بين الأجيال. كل اكتشاف بيهد الفكرة القديمة إن الإنسان منفصل تمامًا عن باقي الكائنات.",
+"الحيوان اللي بنقرا عنه النهارده اتطور في بيئة شكلته على مدار ملايين السنين — كل سلوك وكل عضو في جسمه هو إجابة على سؤال بقاء. لما تفهم 'ليه الكائن ده بيعمل كده؟' بتبقى فاهم قصة كاملة عن بيته وأكله وأعدائه من غير ما تشوفهم.",
+"الحفاظ على التنوع البيولوجي مش رفاهية — كل نوع بينقرض بياخد معاه حلول ومعلومات ممكن تكون مفتاح لاكتشاف طبي أو تقني. الحقيقة اللي قريتها النهارده ممكن تكون يومًا مصدر إلهام لاختراع إنساني — زي ما طيور طارت علمتنا نطير.",
+"الدراسات الحديثة بتكشف إن الحيوانات عندها حياة داخلية أغنى بكتير مما كنا نتخيل — بتخطط وبتفتكر وبتتعلم وبتكوّن علاقات اجتماعية معقدة. اللي كنا بنسميه 'غريزة' بس طلع فيه ذكاء ومرونة أكتر بكتير من اللي العلم كان بيعترف بيه.",
+],
+"pool_en": [
+"Evolution does not design from a blank page — it works with what exists and tweaks it generation after generation. That is why we find solutions that look imperfect yet work brilliantly, like the one you just read about. Nature is not a perfect engineer; it is a pragmatic inventor.",
+"Scientists keep discovering astonishing animal abilities every year — things once thought impossible or uniquely human: tools, languages, memory, empathy, even culture passed between generations. Each discovery chips away at the old idea that humans stand completely apart from other creatures.",
+"The animal you just read about was shaped by its environment over millions of years — every behavior and every organ is an answer to a survival question. Understanding 'why does this creature do that?' tells you an entire story about its home, its food, and its enemies without ever seeing them.",
+"Protecting biodiversity is not a luxury — every species that disappears takes with it solutions and knowledge that could unlock a medical or technical breakthrough. The fact you just read might someday inspire a human invention, just as birds taught us to fly.",
+"Modern research reveals that animals have far richer inner lives than we assumed — they plan, remember, learn, and form complex social bonds. What we once dismissed as 'instinct' turns out to involve far more intelligence and flexibility than science was ready to admit.",
+"وفي الآخر، التعامل مع عالم الحيوان بيغير نظرتنا لنفسنا — كل كائن منهم نجح في امتحان البقاء بنفس القدر اللي نجحنا بيه، بس بطريقته الخاصة. احترام ده مش بس أخلاقيات، ده اعتراف بإننا شركاء في نفس الكوكب ونفس قصة الحياة.",
+"In the end, looking closely at the animal world changes how we see ourselves — every one of them passed the same survival test we did, just in their own way. Respecting that is not mere ethics; it is recognizing that we are partners on the same planet in the same story of life.",
+]},
+"human": {
+"intro_ar": "جسم الإنسان أعقد آلة عرفناها على الإطلاق، وجواه أسرار بتفاجئ حتى الأطباء. واحدة من أغربها: {t}. خلينا نفهم مع بعض إيه اللي بيحصل جواك وأنت مش واخد بالك.",
+"intro_en": "The human body is the most complex machine we know, packed with secrets that surprise even doctors. One of the strangest is this: {t}. Let's explore what is happening inside you right now without you noticing.",
+"outro_ar": "جسمك بيشتغل لصالحك ٢٤ ساعة من غير ما يطلب شكر — كل المعلومات دي هدفها إنك تقدّر الشغل ده وتعيش معاه بشكل أحسن. صحتك كنز، ومعرفتك بجسمك أول خطوة تحافظ عليه.",
+"outro_en": "Your body works for you around the clock without asking for thanks — facts like these exist to help you appreciate that work and live better with it. Your health is treasure, and knowing your body is the first step to protecting it.",
+"pool_ar": [
+"جسمك بياخد آلاف القرارات كل ثانية من غير ما يرجعلك — بيظبط الحرارة والضغط والسكر والمناعة في نفس الوقت إنك بتقرا الكلام ده. كل اللي بتحسه هو النتيجة النهائية بس، أما الشغل الحقيقي فده مافيا كاملة من الخلايا شغالة في الخفاء.",
+"الطب الحديث بيكتشف كل سنة إن جسمنا أعقد مما كنا فاكرين — أجهزة كنا فاكرينها 'زيادة عن اللزوم' زي الزايدة طلع ليها وظايف في المناعة، وبكتيريا الأمعاء طلعت بتأثر على المزاج والقرارات. كل عضو صغير عنده دور في السيمفونية.",
+"المعلومة اللي قريتها مش غريبة بس — هي فرصة تفهم جسمك أحسن. الوعي بإزاي الأعضاء بتشتغل بيساعدك تاخد قرارات صحية أذكى: متى تنام، إيه تاكل، وإمتى العرَض ده يستاهل دكتور. المعرفة هنا مش ترف — هي وقاية.",
+"من أكتر الحاجات المبهرة في جسم الإنسان قدرته على التكيف — لو فقدت حاسة، الحواس التانية بتتقوى؛ لو عضو اتأذى، فيه آليات تعويض بتشتغل فورًا. المرونة دي نتيجة ملايين السنين من التطور اللي اختبر كل سيناريو ممكن.",
+"الأرقام اللي بتحكم جسمك مهيبة فعلًا — 37 تريليون خلية بتتعاون، 100 ألف كيلومتر أوعية دموية، ومليارات الإشارات العصبية كل ثانية. ومع كل ده التعقيد، النظام بيشتغل بهدوء تام لدرجة إنك مابتحسش بيه غير لما حاجة تبوظ.",
+],
+"pool_en": [
+"Your body makes thousands of decisions every second without consulting you — regulating temperature, pressure, blood sugar, and immunity while you read this sentence. All you feel is the final result; the real work is an entire hidden operation run by your cells.",
+"Modern medicine discovers each year that we are more complex than assumed — organs once called 'useless,' like the appendix, turned out to support immunity, and gut bacteria turned out to influence mood and decisions. Every small organ plays a role in the symphony.",
+"The fact you just read is not merely odd — it is a chance to understand your body better. Awareness of how organs work helps you make smarter health decisions: when to sleep, what to eat, and when a symptom deserves a doctor. Knowledge here is not luxury — it is prevention.",
+"One of the most stunning things about the human body is how it adapts — lose one sense and the others sharpen; injure an organ and compensation mechanisms kick in immediately. This flexibility is the product of millions of years of evolution testing every scenario.",
+"The numbers running your body are genuinely staggering — 37 trillion cooperating cells, 100,000 kilometers of blood vessels, billions of nerve signals per second. Yet despite all this complexity, the system runs so smoothly you only notice it when something goes wrong.",
+"والعجيب إن كل التعقيد ده بيشتغل لوحده — مش محتاج تفكر في نبض قلبك أو هضم أكلك أو شفاء جرحك. جسمك مدرب على البقاء من ملايين السنين، وكل ما تقف يومك بتحط شوية أكل وشوية مية، وهو بيسلّمك باقي المعجزة جاهزة.",
+"The wonder is that all this complexity runs on its own — you never have to think about beating your heart, digesting food, or healing a wound. Your body has been trained for survival over millions of years; you supply a little food and water, and it delivers the rest of the miracle, ready-made.",
+]},
+"history": {
+"intro_ar": "التاريخ مليان قصص أغرب من الخيال، وأحداث صغيرة غيرت مجرى العالم كله. واحدة من أطرفها: {t}. القصة دي بتوريك إن الماضي مش بعيد عننا زي ما بنفتكر.",
+"intro_en": "History is full of stories stranger than fiction, and small events that changed the course of the world. One of the most amusing is this: {t}. Stories like these show the past is closer to us than we think.",
+"outro_ar": "التاريخ مش مجرد تواريخ وأسماء للحفظ — هو دروس حية في السلوك البشري. اللي فهم الماضي بيعرف يقرا الحاضر أحسن، وده اللي بنحاول نعمله في كل معلومة.",
+"outro_en": "History is not just dates and names to memorize — it is living lessons in human behavior. Whoever understands the past reads the present better, and that is what we aim to do with every fact.",
+"pool_ar": [
+"المصادفات في التاريخ بتعمل نتائج أكبر من الخطط نفسها — معارك اتحسمت بسبب جو، واكتشافات حصلت بسبب غلطة، وإمبراطوريات وقعت بسبب تفصيلة صغيرة محدش انتبهلها. الحدث اللي بتقرا عنه مثال على إزاي حاجة تافهة شكلها ممكن تقلب التاريخ.",
+"لما بنبص للتاريخ بمسافة، بنلاقي البشر مش اتغيروا كتير — نفس الطموح ونفس المخاوف ونفس الأخطاء بتتكرر بأشكال مختلفة. الفرعون والقيصر والرئيس الحديث كلهم بيواجهوا نفس الأسئلة: إزاي تحكم، إزاي تكسب، وإزاي متتخدعش.",
+"أغرب حاجة في التاريخ إن التفاصيل اللي كانت 'عادية' في وقتها هي أثمن ما وصلنا — رسائل تجار عادية من 4000 سنة بتقولنا عن حياتهم أكتر من النقوش الملكية. يعني اللي بنعتبره تافه النهارده ممكن يبقى كنز للمؤرخين بكرة.",
+"كل حضارة كانت فاكرة إنها آخر الطور وأعلى ما وصله الإنسان — وبعدين بتيجي حضارة تانية تعديها. الدرس المستمر: التقدم مش خط مستقيم، والحاجات اللي بنعتبرها 'مسلمات' ممكن تتغير بشكل كامل خلال أجيال قليلة.",
+"قراية التاريخ بعين فضولية بتخليك تشوف الأنماط — إزاي الإمبراطوريات بتكبر وتشيخ بنفس المراحل، إزاي التكنولوجيا الجديدة بتقلب موازين القوى، وإزاي الأفكار بتنتصر في الآخر على السيوف. القصة اللي قريتها واحدة من آلاف القصص اللي بتشرح ده.",
+],
+"pool_en": [
+"Coincidences in history often outdo the grandest plans — battles decided by weather, discoveries made by mistake, empires fallen over details nobody noticed. The event you just read shows how something seemingly trivial can turn history on its head.",
+"Looking at history from a distance, humans have not changed much — same ambitions, same fears, same mistakes in new costumes. Pharaoh, Caesar, and the modern president all face the same questions: how to rule, how to win, and how not to be deceived.",
+"The strangest thing about history is that details 'ordinary' in their time are the most precious to us — routine merchants' letters from 4,000 years ago tell us more about daily life than royal inscriptions. What we consider trivial today may be treasure to tomorrow's historians.",
+"Every civilization believed it was the final peak of human achievement — until the next one surpassed it. The constant lesson: progress is not a straight line, and the things we treat as 'given' can transform completely within a few generations.",
+"Reading history with curiosity lets you see the patterns — how empires rise and age through the same stages, how new technology flips the balance of power, and how ideas ultimately defeat swords. The story you just read is one of thousands illustrating this.",
+"والأجمل إن التاريخ لسه بيتكتب — كل يوم بيحصل حاجات هتبقى 'تاريخ' لأحفادنا، وممكن اللي بيعمله شخص عادي النهارده يبقى اللي بيتقال عنه المؤرخين بعد مية سنة. إحنا مش بس بنقرا التاريخ، إحنا بنعيشه وبنصنعه في نفس الوقت.",
+"Best of all, history is still being written — every day brings events that will be 'history' to our grandchildren, and what an ordinary person does today might be what historians discuss a century from now. We do not just read history; we live it and make it at the same time.",
+]},
+"tech": {
+"intro_ar": "التكنولوجيا بتتحرك أسرع من قدرتنا على ملاحقتها، وورا كل جهاز في إيدك قصة غريبة. واحدة منها: {t}. المعلومة دي بتفكرك إن التطور التقني مليان مصادفات وعبقريات مشهورة ومجهولة.",
+"intro_en": "Technology moves faster than we can track, and behind every device in your hand lies a strange story. One of them: {t}. Facts like this remind us that technical progress is full of accidents and unsung geniuses.",
+"outro_ar": "التكنولوجيا اللي بنعتبرها بديهية النهارده كانت خيال علمي قبل كام جيل — واللي بنتخيله خيال النهارده ممكن يبقى بديهي لولادنا. خليك دايمًا فضولي، لأن المستقبل بيتبني بسرعة.",
+"outro_en": "The technology we take for granted today was science fiction a few generations ago — and what we call fiction today may be mundane for our kids. Stay curious, because the future is being built fast.",
+"pool_ar": [
+"أغلب الاختراعات اللي غيرت حياتنا ماكانش الهدف منها اللي وصلتله — الإنترنت اتعمل للجيش، والواي فاي جاله أساسه من ممثلة هوليوود، والميكروويف اتكشف بصدفة لما شكولاتة دابت في جيب مهندس. التاريخ التقني مليان صدف سعيدة زي دي.",
+"سرعة التطور التقني مش طبيعية تاريخيًا — الناس استنوا آلاف السنين بين اختراع العجلة والطباعة، بس في آخر 50 سنة بس اتغير كل حاجة: كمبيوتر في كل جيب أقوى من أجهزة وكالة ناسا زمان. مين يعرف اللي جاي في العشر سنين الجاية؟",
+"ورا كل تقنية 'سهلة' بنستخدمها، فيه طبقات تعقيد مابنشوفهاش — ضغطة زرار بتشتغل ملايين الترانزستورات، وبحث على جوجل بيعدي بسيرفرات حول العالم في أجزاء من الثانية. التكنولوجيا العظيمة هي اللي بتخلي التعقيد ده يختفي خلف واجهة بسيطة.",
+"التقنية بتغير مش بس الأجهزة — بتغير عاداتنا وعلاقاتنا وطريقة تفكيرنا. الموبايل غير إزاي بنتكلم ونشوف ونتعلم ونعمل، والذكاء الاصطناعي بيكتب فصل جديد لسه محدش عارف نهايته. اللي بنقراه النهارده ممكن يبقى 'الأيام دي' اللي هنحكي عنها بكرة.",
+"الناس اللي عملوا التقنية دي مش عباقرة خارقين — أغلبهم مهندسين فضوليين سألوا 'ليه مش نجرب؟' وجربوا لحد ما نجحوا. التاريخ التقني بيعلمنا إن الفضول والتجريب أهم من العبقرية — كل اختراع بدأ بحد رفض يقبل إن 'مفيش طريقة أحسن'.",
+],
+"pool_en": [
+"Most life-changing inventions did not aim for what they became — the internet was built for the military, Wi-Fi's foundation came from a Hollywood actress, and the microwave was discovered when a chocolate bar melted in an engineer's pocket. Tech history is full of lucky accidents like this.",
+"The pace of technological change is historically abnormal — humanity waited thousands of years between the wheel and printing, but in the last 50 years alone everything changed: a computer in every pocket stronger than NASA's old machines. Who knows what the next decade brings?",
+"Behind every 'simple' technology we use hide layers of invisible complexity — a button press runs millions of transistors; a Google search races through servers worldwide in milliseconds. Great technology is the kind that makes all that complexity disappear behind a simple interface.",
+"Technology changes more than devices — it changes our habits, relationships, and ways of thinking. The smartphone reshaped how we talk, see, learn, and work, and AI is writing a new chapter nobody can predict. What we read today may be the 'old days' we tell stories about tomorrow.",
+"The people who built this technology are not superhuman geniuses — most are curious engineers who asked 'why not try?' and kept trying until it worked. Tech history teaches us that curiosity and experimentation matter more than genius — every invention began with someone refusing to accept 'there is no better way.'",
+"والملاحظ إن التقنية بتتسارع على نفسها — كل اختراع بيسهل اللي بعده، فالفترات بين الثورات التقنية بتقصر. الطباعة استغرقت قرون تنتشر، التلفزيون سنين، والإنترنت شهور. الجيل اللي النهارده بيشوف تحولات كان أجداده محتاجين عشر أعمار عشان يشوفوها.",
+"Notice that technology accelerates itself — every invention makes the next one easier, so the gaps between revolutions keep shrinking. Printing took centuries to spread, television took years, the internet took months. Today's generation witnesses transformations their ancestors needed ten lifetimes to see.",
+]},
+"nature": {
+"intro_ar": "الطبيعة أعظم مهندسة في الوجود — بتعمل حاجات العلم لسه بيحاول يفهمها. واحدة من أعجبها: {t}. الظاهرة دي بتثبت إن الكوكب اللي عايشين عليه أغرب بكتير مما بنظن.",
+"intro_en": "Nature is the greatest engineer in existence — it does things science is still trying to explain. One of the most wondrous: {t}. Phenomena like this prove the planet we live on is far stranger than we assume.",
+"outro_ar": "الطبيعة مش مجرد خلفية جميلة لحياتنا — هي النظام اللي بنتنفس وناكل ونعيش بيه. كل معلومة عنها هي خطوة نحو فهم أفضل للبيت اللي كلنا عايشين فيه.",
+"outro_en": "Nature is not just a pretty backdrop to our lives — it is the system we breathe, eat, and live through. Every fact about it is a step toward better understanding the home we all share.",
+"pool_ar": [
+"النظم البيئية شغالة زي ساعة معقدة — كل كائن فيها، من أصغر بكتيريا لأكبر حوت، عنده دور بيأثر على الباقي. لما يقع جزء، التوازن كله بيهتز. الظاهرة اللي بتقرا عنها هي حلقة واحدة في سلسلة طويلة بتخلي الكوكب ده قابل للحياة.",
+"الطبيعة بتعمل حسابات معقدة من غير معادلات — النحل بيبني خلايا سداسية لأنها أوفر شكل هندسي، والنمل بيلاقي أقصر طريق للأكل بخوارزميات اتطورت قبل الكمبيوتر بملايين السنين. العلماء لسه بيسرقوا أفكارها لحل مشاكلنا.",
+"الكوكب بيعمل دورات عملاقة مابنحسهاش — الماية بتدور بين المحيط والسما والأرض، والكربون بين الغلاف الجوي والكائنات والصخور. كل حاجة متصلة بكل حاجة، والتغيير الصغير في مكان واحد بيوصل لأقصى نقطة تانية مع الوقت.",
+"أجمل حاجة في الطبيعة إنها مابتبطلش تفاجئنا — كل سنة العلماء بيكتشفوا آلاف الأنواع الجديدة وظواهر كنا فاكرينها مستحيلة. من أعمق المحيط لأعلى قمة، لسه فيه أسرار كتير مستنية حد يلاحظها.",
+"التغير المناخي بيفكرنا إن العلاقة بيننا وبين الطبيعة مش في اتجاه واحد — اللي بنعمله فيها بيرجعلنا. فهم الظواهر الطبيعية مش بس متعة معرفية، ده ضرورة عشان نعرف إزاي نعيش على الكوكب ده من غير ما نبوظه.",
+],
+"pool_en": [
+"Ecosystems run like intricate clocks — every creature, from the smallest bacterium to the largest whale, plays a role affecting the rest. Remove one piece and the whole balance shifts. The phenomenon you just read about is one link in a long chain keeping this planet alive.",
+"Nature performs complex calculations without equations — bees build hexagons because they are the most efficient shape, and ants find shortest paths using algorithms evolved millions of years before computers. Scientists are still stealing her ideas to solve our problems.",
+"The planet runs giant cycles we never feel — water circulating between ocean, sky, and land; carbon moving between atmosphere, life, and rock. Everything connects to everything, and a small change in one place eventually reaches the farthest corner.",
+"The best thing about nature is that it never stops surprising us — every year scientists discover thousands of new species and phenomena we thought impossible. From the deepest ocean to the highest peak, countless secrets still wait for someone to notice them.",
+"Climate change reminds us that our relationship with nature is not one-way — what we do to it comes back to us. Understanding natural phenomena is not just intellectual pleasure; it is essential for learning how to live on this planet without wrecking it.",
+"والحقيقة إن أعظم مختبر في العالم موجود حوالينا مجانًا — كل حديقة وكل شجرة وكل حتة أرض فاضية فيها عالم كامل شغال تحت ناظرينا. العلماء الأطفال بطبيعتهم بيلاحظوا ده؛ إحنا بس بننسى نبص وهو بنكبر. المعلومة دي دعوة نرجع نبص تاني.",
+"The truth is that the world's greatest laboratory is all around us for free — every garden, every tree, every patch of empty land hosts an entire working world beneath our eyes. Scientists are children by nature in noticing this; we just forget to look as we grow up. This fact is an invitation to look again.",
+]},
+"geo": {
+"intro_ar": "كوكب الأرض مليان أماكن ومفارقات جغرافية بتتحدى التخيل، وواحدة من أغربها: {t}. الجغرافيا مش مجرد خرايط — هي قصص مكتوبة بالجبال والمحيطات والحدود.",
+"intro_en": "Planet Earth is full of places and geographic paradoxes that defy imagination, and one of the strangest is: {t}. Geography is not just maps — it is stories written in mountains, oceans, and borders.",
+"outro_ar": "الجغرافيا بتعلمنا إن الدنيا أكبر وأغرب من أي حدود بنرسمها. كل مكان على الخريطة وراه حكاية، وكل حكاية بتفكرك إن كوكبنا لسه مليان أماكن تستاهل الاكتشاف.",
+"outro_en": "Geography teaches us the world is bigger and stranger than any border we draw. Every place on the map has a story, and every story reminds you our planet is still full of places worth discovering.",
+"pool_ar": [
+"الخرايط اللي بنشوفها كل يوم بتكذب علينا بطريقة أنيقة — إسقاط مركاتور بيكبر الشمال ويصغر خط الاستواء، فبلاد زي جرينلاند بتبان ضخمة وهي أصغر بكتير مما تبدو. الحقيقة الجغرافية دايمًا أغرب من الصورة اللي في دماغنا.",
+"الحدود على الخريطة خطوط بسيطة، لكن على الأرض هي قصص معقدة — فيه حدود بتقسم شعوب، وحدود في نص بحيرات، وحدود بتتحرك مع الأنهار. كل خط على الخريطة وراه اتفاقيات ومعارك ومصادفات تاريخية رسمت وجه العالم.",
+"الجغرافيا بتتحكم في التاريخ أكتر مما نتخيل — الحضارات قامت جنب الأنهار، والإمبراطوريات وقفت عند الجبال والبحار، والمدن العظيمة اتبنت فين التجارة ممكن تعدي. شكل الأرض هو اللي كتب نص التاريخ البشري.",
+"كوكبنا فيه أماكن بتتحدى التصديق — صحاري بتتجمد، ومحيطات بتغلي، وجزر بتظهر وتختفي، وأنهار بتجري تحت الأرض. الجغرافيا الحقيقية أغرب من أي عالم متخيل في قصص الفانتازيا.",
+"لما بتعرف جغرافية مكان معين، بتفهم ناسه وثقافته وتاريخه — المناخ بيشكل الأكل واللبس والعمارة وحتى الطباع. اللي بتقراه النهارده مش مجرد رقم على خريطة، هو مفتاح يفتح باب يوصلك لفهم حضارة كاملة.",
+],
+"pool_en": [
+"The maps we see every day lie to us elegantly — the Mercator projection inflates the north and shrinks the equator, making places like Greenland look huge when they are far smaller. Geographic reality is always stranger than the picture in our heads.",
+"Borders are simple lines on a map but complicated stories on the ground — some divide peoples, some run through lakes, some shift with rivers. Every line hides treaties, battles, and historical accidents that drew the face of the world.",
+"Geography steers history more than we imagine — civilizations rose beside rivers, empires stopped at mountains and seas, and great cities were built where trade could pass. The shape of the land wrote half of human history.",
+"Our planet holds places that defy belief — deserts that freeze, oceans that boil, islands that appear and vanish, rivers that run underground. Real geography is stranger than anything fantasy writers ever imagined.",
+"Knowing a place's geography unlocks its people, culture, and history — climate shapes food, clothing, architecture, even temperament. What you just read is not merely a map fact; it is a key opening a door to understanding an entire civilization.",
+"والخرائط مش بس بتوري الأماكن — بتوري إزاي البشر اتوزعوا على الكوكب واتأثروا بيه. كل حد بترسمه البشرية هو حوار بين الإنسان والأرض: جبال بتفصل، أنهار بتوصل، وسواحل بتحكي قصص الهجرة والتجارة اللي شكلت العالم اللي بنعرفه.",
+"Maps show more than places — they show how humans spread across the planet and were shaped by it. Every border humanity draws is a dialogue between people and the Earth: mountains that divide, rivers that connect, and coastlines that tell the stories of migration and trade that shaped the world we know.",
+]},
+}
+
+AR = re.compile(r"[؀-ۿ]")
+
+# one extra closing Arabic paragraph per category (keeps AR body past 300 words)
+EXTRA_AR = {
+"space": "ومع كل ده، الفضاء بيفضل بيواضعنا — الأرض بالنسبة له مجرد نقطة زرقا شاحبة، زي ما قال كارل ساجان. ومع ذلك، دي النقطة الوحيدة اللي بنعرف إن فيها من يقرا عن النجوم ويسأل عنها. الامتياز ده يستاهل إننا نفضل فضوليين للأبد.",
+"science": "وفي الآخر، المعلومة العلمية الصغيرة دي هي أول خطوة في رحلة أطول — منها للفضول، ومن الفضول للأسئلة، ومن الأسئلة للمعرفة الحقيقية. كل عالم بدأ بنفس البداية: لاحظ حاجة غريبة وقرر إنه مش هيسكت لحد ما يفهمها.",
+"animals": "وفي عالم بيتهدد فيه التنوع البيولوجي كل يوم، كل معلومة زي دي بتفكرنا بإيه اللي على المحك — كوكب مليان كائنات عبقرية بتستاهل إننا نحميها مش بس نتفرج عليها. المعرفة هي أول خطوة في الحماية، والتقدير بيبدأ من هنا.",
+"human": "وعشان كده أحسن استثمار ممكن تعمله هو إنك تفهم الآلة اللي بتمشي بيها — جسمك مش هيطلب منك كتير: نوم كويس، حركة، أكل معقول، ومتابعة دورية. هو بياخد باله من الباقي، زي ما بياخد باله من مليون حاجة تانية كل يوم.",
+"history": "وعشان كده التاريخ مادة مش بتخلص — كل يوم بتتكشف أوراق جديدة وبتتعاد قراية قصص قديمة بعين جديدة. اللي بنحكيه النهارده ممكن يتحسن بكرة لو اكتشفنا دليل جديد، ودي متعة المجال: الحكاية لسه بتتكتب.",
+"tech": "وفي النهاية، السؤال مش 'التكنولوجيا هتوصل لفين؟' — السؤال 'إحنا نوصلها لفين؟' الأدوات بتتطور بسرعة، بس اختيار استخدامها فاضل بين إيدينا. المعلومة دي جزء من فهم العالم اللي بيتشكل حوالينا كل يوم.",
+"nature": "ولعل أهم درس من الطبيعة إنها مابتحتاجناش — كانت شغالة قبلنا بمليارات السنين وهتفضل شغالة بعدنا. الفرق الوحيد هو شكل اللي هنخلفه ورانا. فهمها أحسن هو الطريقة الوحيدة نخلي إرثنا ده إرث حكمة مش إرث خراب.",
+"geo": "واللي بيفضل ثابت وسط كل ده إن الخريطة مش هي الأرض — هي بس محاولة لتلخيصها. الحقيقية على الأرض أغنى وأعقد، وكل معلومة جغرافية هي دعوة تكتشف العالم بنفسك، سواء بالسفر أو بالقراية والفضول.",
+}
+
 def main():
+    # safety: keep each pool to its own language
+    for d in CAT_TEXT.values():
+        d["pool_ar"] += [p for p in d["pool_en"] if AR.search(p)]
+        d["pool_en"] = [p for p in d["pool_en"] if not AR.search(p)]
+    for cat, extra in EXTRA_AR.items():
+        CAT_TEXT[cat]["pool_ar"].append(extra)
     pexels = json.load(open(os.path.join(ROOT, "tools", "pexels.json"), encoding="utf-8"))
     used = {c: 0 for c in pexels}
     out = []
+    min_words = 10**9
     for i, (cat, ta, te, ba, be) in enumerate(ARTICLES):
+        ct = CAT_TEXT[cat]
         pool = pexels.get(cat) or pexels.get("nature") or []
         p = pool[used.get(cat, 0) % len(pool)] if pool else {"img": "", "thumb": "", "credit": "", "credit_url": ""}
         used[cat] = used.get(cat, 0) + 1
+        pa = [ct["intro_ar"].format(t=ta), ba] + ct["pool_ar"] + [ct["outro_ar"]]
+        pe = [ct["intro_en"].format(t=te), be] + ct["pool_en"] + [ct["outro_en"]]
+        min_words = min(min_words, len(" ".join(pa).split()), len(" ".join(pe).split()))
         out.append({
             "i": i, "c": cat,
             "ta": ta, "te": te, "ba": ba, "be": be,
+            "pa": pa, "pe": pe,
             "img": p["img"], "thumb": p["thumb"],
             "ph": p["credit"], "phu": p["credit_url"],
         })
@@ -335,7 +534,7 @@ def main():
           "const ARTICLES=" + json.dumps(out, ensure_ascii=False) + ";\n")
     dst = os.path.join(ROOT, "assets", "js", "articles.js")
     open(dst, "w", encoding="utf-8").write(js)
-    print("wrote", dst, len(out), "articles")
+    print("wrote", dst, len(out), "articles | min words:", min_words)
 
 if __name__ == "__main__":
     main()

@@ -41,6 +41,7 @@
       article_search_ph: "ابحث في المقالات…",
       read_more: "اقرأ المقال",
       photo_by: "الصورة:",
+      see_also: "شوف كمان الفيديوهات دي",
       vlinks_head: "أحدث فيديوهات القناة"
     },
     en: {
@@ -80,6 +81,7 @@
       article_search_ph: "Search articles…",
       read_more: "Read article",
       photo_by: "Photo:",
+      see_also: "See also these videos",
       vlinks_head: "Latest channel videos"
     }
   };
@@ -430,6 +432,24 @@
     });
   }
 
+  var ART_VC = {
+    space: ["facts"], science: ["facts", "tech"], animals: ["animals"],
+    human: ["health"], history: ["facts", "news"], tech: ["tech"],
+    nature: ["animals", "misc"], geo: ["facts", "news"]
+  };
+
+  var modalVideosEl = document.getElementById("modalVideos");
+
+  function relatedVideos(a) {
+    var cats = ART_VC[a.c] || ["misc"];
+    var pool = VIDEOS.filter(function (v) { return cats.indexOf(v[1]) !== -1; });
+    var picked = [];
+    for (var k = 0; k < 5 && pool.length; k++) {
+      picked.push(pool[(a.i * 7 + k) % pool.length]);
+    }
+    return picked;
+  }
+
   function openArticle(a) {
     modalImg.src = a.img;
     modalImg.alt = artTitle(a);
@@ -440,8 +460,36 @@
     modalCat.style.color = cat.color;
     modalTitle.textContent = artTitle(a);
     modalTitle.dir = "auto";
-    modalText.textContent = artBody(a);
-    modalText.dir = "auto";
+
+    var paras = (lang === "en" && a.pe ? a.pe : a.pa) || [artBody(a)];
+    modalText.innerHTML = "";
+    paras.forEach(function (t) {
+      var p = document.createElement("p");
+      p.className = "modal-text";
+      p.textContent = t;
+      p.dir = "auto";
+      modalText.appendChild(p);
+    });
+
+    modalVideosEl.innerHTML = "";
+    relatedVideos(a).forEach(function (v) {
+      var wrap = document.createElement("div");
+      wrap.className = "mv";
+      var iframe = document.createElement("iframe");
+      iframe.loading = "lazy";
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + v[0] + "?rel=0";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      iframe.title = v[2];
+      var cap = document.createElement("div");
+      cap.className = "mv-title";
+      cap.textContent = v[2];
+      cap.dir = "auto";
+      wrap.appendChild(iframe);
+      wrap.appendChild(cap);
+      modalVideosEl.appendChild(wrap);
+    });
+
     if (a.ph) {
       modalCredit.hidden = false;
       modalCredit.href = a.phu;
@@ -455,6 +503,7 @@
 
   function closeArticle() {
     modalEl.hidden = true;
+    modalVideosEl.innerHTML = "";
     document.body.style.overflow = "";
   }
 
