@@ -3,3 +3,4 @@ Thumbs.db
 node_modules/
 *.log
 channel.json
+__pycache__/
