@@ -517,6 +517,12 @@ img, video, iframe { max-width: 100%; }
   .site-footer { padding: 1.5rem 0; }
 }
 
+/* Performance: skip rendering off-screen cards until needed */
+.video-card, .article-card, .book-grid > *, .grid > * {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+}
+
 /* <= 380px: very small phones */
 @media (max-width: 380px) {
   .container { width: 95%; }
