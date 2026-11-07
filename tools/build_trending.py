@@ -8,8 +8,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHANNEL = "https://www.youtube.com/@m3lomat-momt3a/videos"
 FETCH_N = 40          # newest videos to inspect
 TOP_N = 6             # how many to keep in trending.js
-WINDOW_DAYS = 2       # "last 2 days"
-FALLBACK_DAYS = 7     # widen window if nothing found
+WINDOWS = [7, 14, 30, 60, 90]  # widen until enough videos for a real ranking
 
 def main():
     import yt_dlp
@@ -44,11 +43,15 @@ def main():
             return False
         return (now - dt) <= timedelta(days=days)
 
-    window = WINDOW_DAYS
+    window = WINDOWS[0]
     recent = [v for v in vids if within(window, v["d"])]
-    if not recent:
-        window = FALLBACK_DAYS
-        recent = [v for v in vids if within(window, v["d"])]
+    for w in WINDOWS[1:]:
+        if len(recent) >= min(TOP_N, 3):
+            break
+        window = w
+        wider = [v for v in vids if within(w, v["d"])]
+        if len(wider) > len(recent):
+            recent = wider
 
     recent.sort(key=lambda v: -v["v"])
     top = recent[:TOP_N]
