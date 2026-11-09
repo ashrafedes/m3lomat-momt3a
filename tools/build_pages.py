@@ -151,78 +151,65 @@ def build_videos_page():
             continue
         by_cat.setdefault(categorize(title), []).append((e["id"], title))
 
-    out = [HEAD.format(
-        title="كل الفيديوهات | معلومات ممتعة — Fun Facts",
-        desc="جميع فيديوهات قناة معلومات ممتعة على يوتيوب مصنفة حسب الموضوع: وصفات، صحة، أخبار، قصص، أجهزة، دين، حيوانات، مال وأعمال.",
-        page="videos.html")]
-    total = sum(len(v) for v in by_cat.values())
-    out.append(f"""    <section class="videos">
+    flat = []
+    for key in VIDEO_ORDER:
+        for vid, title in by_cat.get(key, []):
+            flat.append((vid, title, key))
+    total = len(flat)
+    CHUNK = 200
+    pages = [flat[i:i + CHUNK] for i in range(0, total, CHUNK)]
+    npages = len(pages)
+
+    def pname(p):
+        return "videos.html" if p == 1 else f"videos-{p}.html"
+
+    for p, chunk in enumerate(pages, 1):
+        out = [HEAD.format(
+            title=f"كل الفيديوهات ({p}/{npages}) | معلومات ممتعة — Fun Facts",
+            desc="جميع فيديوهات قناة معلومات ممتعة على يوتيوب مصنفة حسب الموضوع: وصفات، صحة، أخبار، قصص، أجهزة، دين، حيوانات، مال وأعمال.",
+            page=pname(p))]
+        out.append(f"""    <section class="videos">
       <div class="container">
         <h1><span class="ar-only">كل فيديوهات القناة</span><span class="en-only">All Channel Videos</span> <span class="count">({total})</span></h1>
-        <p class="page-sub"><span class="ar-only">جميع فيديوهات قناة <a href="https://www.youtube.com/@m3lomat-momt3a" rel="noopener">معلومات ممتعة</a> على يوتيوب — مصنفة حسب الموضوع.</span><span class="en-only">All videos from the <a href="https://www.youtube.com/@m3lomat-momt3a" rel="noopener">M3lomat Momt3a</a> YouTube channel — sorted by topic.</span></p>
-        <nav class="chips cat-index">
+        <p class="page-sub"><span class="ar-only">صفحة {p} من {npages} — جميع فيديوهات قناة <a href="https://www.youtube.com/@m3lomat-momt3a" rel="noopener">معلومات ممتعة</a> على يوتيوب.</span><span class="en-only">Page {p} of {npages} — all videos from the <a href="https://www.youtube.com/@m3lomat-momt3a" rel="noopener">M3lomat Momt3a</a> channel.</span></p>
+        <div class="search-box" style="margin-bottom:1.4rem"><input type="search" id="vq" placeholder="ابحث في هذه الصفحة… / Search this page…"></div>
+        <nav class="chips page-nav">
 """)
-    for key in VIDEO_ORDER:
-        items = by_cat.get(key)
-        if not items:
-            continue
-        ar, en = CAT_INFO[key]
-        out.append(f'          <a class="chip" href="#{key}"><span class="ar-only">{ar}</span><span class="en-only">{en}</span> ({len(items)})</a>\n')
-    out.append("        </nav>\n")
-    for key in VIDEO_ORDER:
-        items = by_cat.get(key)
-        if not items:
-            continue
-        ar, en = CAT_INFO[key]
-        out.append(f'        <h2 id="{key}"><span class="ar-only">{ar}</span> <span class="en-only">{en}</span> <span class="count">({len(items)})</span></h2>\n')
-        out.append('        <div class="video-grid">\n')
-        for vid, title in items:
+        for n in range(1, npages + 1):
+            cls = "chip active" if n == p else "chip"
+            out.append(f'          <a class="{cls}" href="{pname(n)}">{n}</a>\n')
+        out.append('        </nav>\n        <div class="video-grid">\n')
+        for vid, title, cat in chunk:
+            ar, en = CAT_INFO[cat]
             out.append(
                 f'          <a class="video-card" href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener">\n'
                 f'            <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/{vid}/mqdefault.jpg" alt="{esc(title)}"><span class="play">▶</span></div>\n'
                 f'            <h3 dir="auto">{esc(title)}</h3>\n'
+                f'            <p class="fact-cat" style="margin:.4rem 1rem 0;align-self:flex-start"><span class="ar-only">{ar}</span><span class="en-only">{en}</span></p>\n'
                 f'          </a>\n')
-        out.append("        </div>\n")
-    out.append("      </div>\n    </section>\n")
-    # chunked rendering + live search: renders 3,300+ cards fast
-    out.append("""  <script>
-  (function () {
-    var cards = Array.prototype.slice.call(document.querySelectorAll('.videos .video-card'));
-    var CHUNK = 120, shown = CHUNK;
-    var box = document.createElement('div');
-    box.className = 'search-box';
-    box.style.margin = '0 0 1.4rem';
-    box.innerHTML = '<input type="search" id="vq" placeholder="ابحث في الفيديوهات… / Search videos…">';
-    var nav = document.querySelector('.videos .cat-index');
-    nav.parentNode.insertBefore(box, nav.nextSibling);
-    var q = box.querySelector('input');
-    function apply() {
-      var query = q.value.trim().toLowerCase(), n = 0;
-      cards.forEach(function (c) {
-        var m = !query || c.textContent.toLowerCase().indexOf(query) >= 0;
-        c.style.display = (m && (query ? n < 300 : n < shown)) ? '' : 'none';
-        if (m) n++;
-      });
-      document.querySelectorAll('.videos h2').forEach(function (h) {
-        var g = h.nextElementSibling;
-        var any = g && Array.prototype.some.call(g.children, function (c) { return c.style.display !== 'none'; });
-        h.style.display = any ? '' : 'none';
-        if (g) g.style.display = any ? '' : 'none';
-      });
-    }
-    q.oninput = apply;
-    var sent = document.createElement('div');
-    document.querySelector('.videos .container').appendChild(sent);
-    new IntersectionObserver(function (e) {
-      if (e[0].isIntersecting && !q.value.trim()) { shown += CHUNK; apply(); }
-    }).observe(sent);
-    apply();
-  })();
+        out.append('        </div>\n        <nav class="chips page-nav" style="margin-top:1.4rem">\n')
+        for n in range(1, npages + 1):
+            cls = "chip active" if n == p else "chip"
+            out.append(f'          <a class="{cls}" href="{pname(n)}">{n}</a>\n')
+        out.append("""        </nav>
+      </div>
+    </section>
+  <script>
+    (function () {
+      var q = document.getElementById('vq');
+      var cards = document.querySelectorAll('.videos .video-card');
+      q.oninput = function () {
+        var query = q.value.trim().toLowerCase();
+        cards.forEach(function (c) {
+          c.style.display = (!query || c.textContent.toLowerCase().indexOf(query) >= 0) ? '' : 'none';
+        });
+      };
+    })();
   </script>
 """)
-    out.append(FOOT)
-    open(os.path.join(ROOT, "videos.html"), "w", encoding="utf-8").write("".join(out))
-    print("videos.html:", total, "videos")
+        out.append(FOOT)
+        open(os.path.join(ROOT, pname(p)), "w", encoding="utf-8").write("".join(out))
+    print("videos:", total, "on", npages, "pages")
 
 
 ART_CAT_COLORS = {

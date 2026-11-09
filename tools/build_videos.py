@@ -1,6 +1,6 @@
 # Regenerate assets/js/videos.js and the video entries in sitemap.xml
 # Usage: python tools/build_videos.py   (needs channel.json from yt-dlp, or it fetches it)
-import json, re, subprocess, os
+import json, re, subprocess, os, glob
 from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -121,7 +121,14 @@ def main():
            f"    <lastmod>{today}</lastmod>",
            "    <changefreq>weekly</changefreq>",
            "    <priority>0.9</priority>",
-           "  </url>",
+           "  </url>"] + [
+           x for f in sorted(glob.glob(os.path.join(ROOT, "videos-*.html")))
+           for x in ["  <url>",
+                     f"    <loc>{DOMAIN}/{os.path.basename(f)}</loc>",
+                     f"    <lastmod>{today}</lastmod>",
+                     "    <changefreq>monthly</changefreq>",
+                     "    <priority>0.7</priority>",
+                     "  </url>"]] + [
            "  <url>",
            f"    <loc>{DOMAIN}/articles.html</loc>",
            f"    <lastmod>{today}</lastmod>",
