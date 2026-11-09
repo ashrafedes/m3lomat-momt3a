@@ -189,6 +189,7 @@ HEAD = """<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MXFQBXXJ"></script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WZX4PWH4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){{dataLayer.push(arguments);}}
