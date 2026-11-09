@@ -270,7 +270,7 @@ html[data-lang="en"] .ar-only, html[data-lang="ar"] .en-only { display: none; }
 .book-side .side-title { font-size: 1.05rem; font-weight: 800; margin-bottom: .9rem; }
 .book-side .video-card { margin-bottom: .8rem; }
 .book-side .video-card h3 { font-size: .82rem; }
-@media (max-width: 860px) { .book-layout { grid-template-columns: 1fr; } .book-side { position: static; max-height: none; } }
+@media (max-width: 860px) { .book-layout { grid-template-columns: minmax(0, 1fr); } .book-side { position: static; max-height: none; } }
 .book-thumb { display: block; height: 200px; background: var(--bg-soft); }
 .book-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .book-thumb .thumb { height: 100%; aspect-ratio: auto; }
@@ -437,7 +437,8 @@ html[dir="ltr"] .toast.show { transform: translateX(-50%) translateY(0); }
 }
 .vlinks a:hover { border-color: #e11d48; transform: translateY(-2px); }
 .vlinks a svg { flex-shrink: 0; color: #e11d48; }
-.vlinks a span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vlinks a span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.vlinks > * { min-width: 0; }
 
 @media (max-width: 560px) {
   .nav { gap: .9rem; font-size: .9rem; }
@@ -445,8 +446,9 @@ html[dir="ltr"] .toast.show { transform: translateX(-50%) translateY(0); }
 }
 
 /* ===== Mobile optimization (structure unchanged) ===== */
-body { overflow-x: hidden; }
+html, body { overflow-x: hidden; }
 img, video, iframe { max-width: 100%; }
+.grid > *, .video-grid > *, .article-grid > *, .book-grid > *, .best-grid > * { min-width: 0; }
 
 /* <= 860px: let the header wrap into two rows, nav scrolls sideways */
 @media (max-width: 860px) {
@@ -488,10 +490,10 @@ img, video, iframe { max-width: 100%; }
   .chip { flex-shrink: 0; font-size: .8rem; }
 
   .video-grid, .article-grid, .book-grid, .best-grid, .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: .9rem;
   }
-  .vlinks { grid-template-columns: 1fr; }
+  .vlinks { grid-template-columns: minmax(0, 1fr); }
   .video-card h3 { font-size: .9rem; }
 
   .subscribe-banner { flex-direction: column; gap: .8rem; padding: 1.1rem; }
@@ -510,7 +512,7 @@ img, video, iframe { max-width: 100%; }
   .modal { padding: .6rem; align-items: start; }
   .modal-body { padding: 1rem 1rem 1.2rem; gap: .7rem; }
   .modal-body h3 { font-size: 1.1rem; }
-  .modal-videos { grid-template-columns: 1fr; }
+  .modal-videos { grid-template-columns: minmax(0, 1fr); }
 
   .toast { width: max-content; max-width: 90vw; }
   .social { gap: .7rem; }
@@ -537,7 +539,7 @@ img, video, iframe { max-width: 100%; }
   .section-head .btn { align-self: flex-start; }
 
   .video-grid, .article-grid, .book-grid, .best-grid, .grid, .vlinks {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   /* Thumbnails taller/cleaner on portrait */
@@ -552,7 +554,7 @@ img, video, iframe { max-width: 100%; }
 
   /* Article pages read like a column */
   .article-body { font-size: 1.02rem; }
-  .modal-videos { grid-template-columns: 1fr; }
+  .modal-videos { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Landscape phones: keep header single-row, restore side paddings */
