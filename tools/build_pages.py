@@ -184,6 +184,42 @@ def build_videos_page():
                 f'          </a>\n')
         out.append("        </div>\n")
     out.append("      </div>\n    </section>\n")
+    # chunked rendering + live search: renders 3,300+ cards fast
+    out.append("""  <script>
+  (function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.videos .video-card'));
+    var CHUNK = 120, shown = CHUNK;
+    var box = document.createElement('div');
+    box.className = 'search-box';
+    box.style.margin = '0 0 1.4rem';
+    box.innerHTML = '<input type="search" id="vq" placeholder="ابحث في الفيديوهات… / Search videos…">';
+    var nav = document.querySelector('.videos .cat-index');
+    nav.parentNode.insertBefore(box, nav.nextSibling);
+    var q = box.querySelector('input');
+    function apply() {
+      var query = q.value.trim().toLowerCase(), n = 0;
+      cards.forEach(function (c) {
+        var m = !query || c.textContent.toLowerCase().indexOf(query) >= 0;
+        c.style.display = (m && (query ? n < 300 : n < shown)) ? '' : 'none';
+        if (m) n++;
+      });
+      document.querySelectorAll('.videos h2').forEach(function (h) {
+        var g = h.nextElementSibling;
+        var any = g && Array.prototype.some.call(g.children, function (c) { return c.style.display !== 'none'; });
+        h.style.display = any ? '' : 'none';
+        if (g) g.style.display = any ? '' : 'none';
+      });
+    }
+    q.oninput = apply;
+    var sent = document.createElement('div');
+    document.querySelector('.videos .container').appendChild(sent);
+    new IntersectionObserver(function (e) {
+      if (e[0].isIntersecting && !q.value.trim()) { shown += CHUNK; apply(); }
+    }).observe(sent);
+    apply();
+  })();
+  </script>
+""")
     out.append(FOOT)
     open(os.path.join(ROOT, "videos.html"), "w", encoding="utf-8").write("".join(out))
     print("videos.html:", total, "videos")
