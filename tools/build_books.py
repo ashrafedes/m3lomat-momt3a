@@ -190,6 +190,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="stylesheet" href="assets/css/style.css">
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MXFQBXXJ"></script>
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WZX4PWH4"></script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-P8QPQVWR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){{dataLayer.push(arguments);}}
